@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="21" height="25" viewBox="0 0 21 25">
+  <defs>
+    <clipPath id="clip-Zoom_in">
+      <rect width="21" height="25"/>
+    </clipPath>
+  </defs>
+  <g id="Zoom_in" data-name="Zoom in" clip-path="url(#clip-Zoom_in)">
+    <path id="Trazado_4750" data-name="Trazado 4750" d="M18.031,16.617,22.314,20.9,20.9,22.314l-4.282-4.283a9,9,0,1,1,1.414-1.414Zm-2.006-.742a7,7,0,1,0-.15.15l.15-.15ZM10,10V7h2v3h3v2H12v3H10V12H7V10Z" transform="translate(-1.314 -0.157)" fill="#2b2a2a"/>
+  </g>
+</svg>

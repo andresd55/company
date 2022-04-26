@@ -1,0 +1,162 @@
+<p-breadcrumb
+  [model]="itemsBreadcrumb"
+></p-breadcrumb>
+
+<p-dialog
+  [(visible)]="displayDialogProcessOperator"
+  [contentStyleClass]="'border-top'"
+  [modal]="true"
+  [baseZIndex]="10000"
+  [draggable]="false"
+  [showHeader]="false"
+  [resizable]="false"
+  [style]="{ width: '500px' }"
+>
+  <div class="row">
+    <div class="col-md-12 text-center font50">
+      <img
+        _ngcontent-amv-c221=""
+        width="60px"
+        height="60px"
+        src="../../../assets/images/Alert.svg"
+        alt="shopping cart"
+        class="simple-img"
+        appImage
+      />
+    </div>
+    <div class="col-md-12 text-center mt-24">
+      <p>{{ "floor-control.validate-process-operator" | translate }}</p>
+    </div>    
+  </div>
+
+  <ng-template pTemplate="footer">
+    <div class="col-md-12 text-center">
+      <p-button
+        (click)="closeCommentConfirmation()"
+        label="{{ 'floor-control.lblOk' | translate }}"
+        styleClass="button button-primary text-center"
+      ></p-button>
+    </div>
+  </ng-template>
+</p-dialog>
+
+<p-scanner
+  header="{{ 'scanner.scanner' | translate }}"
+  [modal]="true"
+  [draggable]="false"
+  [resizable]="false"
+  [(visible)]="displayScanner"
+  [style]="{ width: '50vw' }">
+      
+  <ng-template pTemplate="footer">    
+  </ng-template>
+</p-scanner>
+
+<form [formGroup]="floorControlForm">
+    <div
+      class="row finotex-container_section finotex-container_section--shadow mt-16">
+    <div class="row w-100">
+        <div class="col-12">
+            <div class="d-flex justify-content-between align-items-baseline mb-3">
+              <h4 class="ttile-page">
+                {{ 'floor-control.tittle' | translate }}
+              </h4>
+            </div>
+        </div>
+        <div class="col-12">
+            <p class="description-page">
+              {{ 'floor-control.description' | translate }}
+            </p>
+        </div>
+        <div class="col-12 col-lg-4 mt-16 " >
+            <label for="txtProductionPlant" >
+            {{ "floor-control.production-plant" | translate }}
+            </label>
+            <p-dropdown
+            (onChange)="changePlant($event.value)"
+            [options]="plants"            
+            optionValue="plantId"
+            optionLabel="plantName"
+            class="w-100"
+            formControlName="plants"
+            placeholder="{{('formsGeneral.selSelectOpcion' | translate) || ' '}}"
+            ></p-dropdown>
+        </div>
+        <div class="col-12 col-lg-4 mt-16" >
+            <label for="txtProcess" >
+            {{ "floor-control.process" | translate }}
+            </label>
+            <p-dropdown
+            [options]="process"            
+            optionValue="processId"
+            optionLabel="processName"
+            class="w-100"
+            formControlName="process"
+            placeholder="{{('formsGeneral.selSelectOpcion' | translate) || ' '}}"
+            ></p-dropdown>
+        </div>
+        <div class="col-12 col-lg-4 mt-16" *ngIf=isOperator>
+            <label for="txtSchedule" >
+            {{ "floor-control.schedule" | translate }}
+            </label>
+            <p-dropdown
+            [options]="productionMastersSchedule"            
+            optionValue="codeSchedule"
+            optionLabel="nameSchedule"
+            class="w-100"
+            formControlName="productionMastersSchedule"
+            placeholder="{{('formsGeneral.selSelectOpcion' | translate) || ' '}}"
+            ></p-dropdown>
+        </div>
+        <div class="col-12 col-lg-4 mt-16" *ngIf=isOperator>
+            <label for="txtTurn" >
+            {{ "floor-control.turn" | translate }}
+            </label>
+            <p-dropdown
+            [options]="productionMastersTurns"            
+            optionValue="codeTurn"
+            optionLabel="nameTurn"
+            class="w-100"            
+            formControlName="productionMastersTurns"
+            placeholder="{{('formsGeneral.selSelectOpcion' | translate) || ' '}}"
+            ></p-dropdown>
+        </div>
+        <div class="col-12 col-lg-4 mt-16" *ngIf=isOperator>
+            <label for="txtIdentification" class="w-100">
+            {{ "floor-control.identification" | translate }}
+            </label>
+            <div class="input-group">
+                <input
+                type="text"
+                class="form-control inputs id"
+                pInputTextarea
+                formControlName="identification"
+                placeholder="{{ 'floor-control.identification' | translate }}"
+                />
+                <div class="input-group-append">
+                <button
+                    (click)="openScanner()"
+                    pButton
+                    type="button"                    
+                    class="button button-primary button-bar-code search"
+                    ><img
+                    class="bar-code-img"
+                    src="../../../assets/images/Grafico_barras.svg"
+                    alt="shopping cart" appImage /></button>
+                </div>
+            </div>
+            
+        </div>
+        <div class="col-12 mt-16 mb-16 pr-75 text-right">
+            <button pButton 
+              type="button"  [disabled]="floorControlForm.invalid"
+              (click)="continueProcess()" iconPos="right" icon="fas fa-arrow-right" 
+              label="" class="button button-primary btn-sig">
+              {{ "floor-control.continue" | translate }}  
+            </button>
+        </div>
+      </div>
+    </div>
+</form>
+
+<p-toast></p-toast>

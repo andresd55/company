@@ -1,0 +1,139 @@
+<div class="main-wrapper">
+  <div class="page-wrapper full-page login">
+    <div class="page-content d-flex align-items-center justify-content-center">
+      <div class="row w-100 mx-0 auth-page">
+        <div class="col-md-7 col-xl-5 mx-auto">
+          <div class="panel-login">
+            <div class="row">
+              <div class="col-12 pl-md-0">
+                <div class="auth-form-wrapper px-5 py-5">
+                  <a href="#" class="noble-ui-logo d-block mb-2">
+                    <img
+                      class="companyLogo simple-img"
+                      data-tenant-branding-logo="true"
+                      src="../../../assets/images/Logo Finotex.svg"
+                      alt="Company Logo"
+                    />
+                  </a>
+                  <label for="exampleInputEmail1" class="mt-2">
+                    Welcome back!
+                  </label>
+                  <h5 class="text-muted font-weight-normal mb-4">
+                    Please select your user account type to continue.
+                  </h5>
+                  <form
+                    class="forms-sample"
+                    [formGroup]="registerForm"
+                    (ngSubmit)="onSubmitTypeUser()"
+                  >
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">User type</label>
+                      <p-dropdown
+                        formControlName="user_type"
+                        [options]="userType"
+                        optionLabel="name"
+                        optionValue="code"
+                        placeholder="Select an option"
+                      ></p-dropdown>
+                    </div>
+                    <div class="mt-3 text-right">
+                      <button
+                        pButton
+                        type="submit"
+                        iconPos="right"
+                        icon="fas fa-arrow-right"
+                        label=""
+                        [disabled]="registerForm.invalid"
+                        class="button button-primary btn-sig"
+                      >
+                        Continue
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<form [formGroup]="registerFormLogin" (ngSubmit)="onSubmitLogin()">
+  <p-dialog
+    header="{{titleLogin}}"
+    [(visible)]="displayLogin"
+    [modal]="true"
+    [draggable]="false"
+    [resizable]="false"
+    [style]="{ width: '500px' }"
+  >
+    <div class="row g-3">
+      
+      <div class="col-12">
+        <a href="#" class="noble-ui-logo d-block mb-2">
+          <img
+            class="companyLogo simple-img"
+            data-tenant-branding-logo="true"
+            src="../../../assets/images/Logo Finotex.svg"
+            alt="Company Logo"
+          />
+        </a>
+        <label>
+          Sign in with your email address
+        </label>
+      </div>
+
+      <div class="col-12">
+        <label for="validationDefault01">
+          Email Addres
+        </label>
+        <input
+          type="email"
+          formControlName="username"
+          pInputText
+          placeholder="Email Addres"
+          class="form-control"
+        />
+      </div>
+
+      <div class="col-12 mt-2 pr-75">
+        <label>
+          Password
+        </label>
+        <input
+          type="password"
+          formControlName="password"
+          pInputText
+          placeholder="Password"
+          class="form-control"
+        />
+      </div>
+
+      <div class="col-12 mt-3" *ngIf="showError">
+        <div class="alert alert-danger" role="alert">
+          {{showErrorText}}!
+        </div>
+      </div>
+
+      
+    </div>
+
+    <ng-template pTemplate="footer">
+      <div class="row">
+        <div class="col-12">
+          <app-button-finotex
+            label="Sign in"
+            type="submit"
+            typeButton="primary"
+            [typeSize]="false"
+            [disabled]="registerFormLogin.invalid"
+          ></app-button-finotex>
+        </div>
+      </div>
+      
+    </ng-template>
+  </p-dialog>
+</form>
+

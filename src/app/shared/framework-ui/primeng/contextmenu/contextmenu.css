@@ -1,0 +1,53 @@
+.p-contextmenu, .p-contextmenu-sub {
+    position: absolute;
+    background: #F6F6F6 0% 0% no-repeat padding-box;
+    border-radius: 25px 25px 25px 25px;
+    margin-left: -212px;
+    z-index: 1000;
+}
+
+.p-contextmenu-sub {
+    margin-left: 175px;
+    margin-top: -24px;
+    width: 180px;
+}
+
+.p-contextmenu ul li, .p-contextmenu-sub ul li {
+    padding: 16px;
+    list-style-type: none;
+    list-style: none;
+    text-align: center;
+    background-color: #FFFFFF;
+}
+
+.p-contextmenu ul li:nth-of-type(odd), .p-contextmenu-sub ul li:nth-of-type(odd) {
+    background: #54585a0d 0% 0% no-repeat padding-box;
+}
+
+.p-contextmenu ul, .p-contextmenu-sub ul  {
+    padding: 0px;
+    margin: 0px;
+    width: 100%;
+}
+
+.p-contextmenu ul li:hover, .p-contextmenu-sub ul li:hover {
+    background-color: #2B2A2A;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+.p-contextmenu ul li, .p-contextmenu-sub ul li {
+    color: #2B2A2A;
+}
+.p-contextmenu ul li:last-child, .p-contextmenu-sub ul li:last-child {
+    border-radius: 0px 0px 25px 25px;
+}
+
+.p-contextmenu ul li:first-child, .p-contextmenu-sub ul li:first-child {
+    border-radius: 25px 25px 0px 0px;
+}
+
+.arrow {
+    position: absolute;
+    right: 8px;
+    top: 22px;
+}

@@ -1,0 +1,126 @@
+.shopping-cart {
+  border-radius: 25px;
+  border: 2px solid #54585a26;
+  opacity: 1;
+  background: #ffffff 0% 0% no-repeat padding-box;
+}
+
+.shopping-cart-header {
+  font: normal normal 600 16px/19px Montserrat;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+  color: #2b2a2a;
+  margin: auto;
+  padding-left: 17px;
+  padding-right: 17px;
+  padding-top: 9px;
+  padding-bottom: 9px;
+  border-bottom: 2px solid #54585a1d;
+}
+
+.checkbox-finotex {
+  height: 100%;
+  color: #ffffff;
+  display: grid;
+  place-items: center;
+  float: right;
+}
+
+.checkbox-finotex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.shopping-cart-body {
+  color: #2b2a2a;
+  margin-top: 10px;
+  margin-left: 17px;
+  margin-right: 17px;
+}
+
+.shopping-cart-footer {
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+  margin-top: 9px;
+  margin-bottom: 11px;
+  margin-left: 17px;
+  margin-right: 17px;
+}
+
+input[type='checkbox']:checked:after {
+  content: '\e909';
+  padding-left: 5px;
+}
+
+input.pi.p-checkbox {
+  line-height: 0.7;
+  font-size: 14px;
+}
+
+.image-shopping-finotex {
+  background: #e8e8e8 0% 0% no-repeat padding-box;
+  box-shadow: inset 0px 3px 6px #00000029;
+  border-radius: 15px;
+  opacity: 1;
+  width: 100%;
+  min-height: 140px;
+}
+
+.items-cart {
+  background: #e8e8e8 0% 0% no-repeat padding-box;
+  box-shadow: inset 0px 3px 6px #00000029;
+  border-radius: 15px;
+  opacity: 1;
+  width: 100%;
+}
+
+.center {
+  display: flex;
+  margin: auto;
+  margin: auto;
+  width: 85%;
+  min-height: 140px;
+}
+
+.title-card-fonotex {
+  font: normal normal bold 14px/17px Montserrat;
+  color: #2b2a2a;
+}
+
+.title-card-sub-fonotex {
+  font: normal normal normal 14px/17px Montserrat;
+  color: #2b2a2a;
+  margin-top: 1px;
+  margin-bottom: 8px;
+}
+
+.font-middle {
+  font: normal normal bold 14px/16px Montserrat;
+  text-decoration: underline;
+}
+
+.footer-total {
+  border-radius: 15px;
+  border: 2px solid #54585A26;
+  padding: 18px;
+  background: #F6F6F6 0% 0% no-repeat padding-box;
+}
+
+.total-shopping-title {
+  font: normal normal bold 20px/24px Montserrat;
+  color: #2B2A2A;
+}
+
+.center-delete {
+  display:flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ttile-page{
+  font: normal normal bold 22px/27px Montserrat;
+  color: #D6001C !important;
+  opacity: 1;
+}

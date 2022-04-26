@@ -1,0 +1,55 @@
+# Docker
+
+
+trigger:
+- development
+
+resources:
+- repo: self
+
+variables:
+  # Container registry service connection established during pipeline creation
+  dockerRegistryServiceConnection: '132fc9d7-5d4e-428d-9a85-6f2e358fab56'
+  applicationName: 'FinotexWebCompanyDev'
+  imageRepository: 'finotexwebcompany'
+  containerRegistry: 'finotexazurecontainerregister.azurecr.io'
+  dockerfilePath: '**/Dockerfile'
+  tag: '$(Build.BuildId)'
+
+  # Agent VM image name
+  vmImageName: 'ubuntu-latest'
+
+stages:
+- stage: Build
+  displayName: Build and push stage
+  jobs:
+  - job: Build
+    displayName: Build
+    pool:
+      vmImage: $(vmImageName)
+    steps:
+    - task: Docker@2
+      displayName: Build and push an image to container registry
+      inputs:
+        command: buildAndPush
+        buildContext: $(Build.Repository.LocalPath)
+        repository: $(imageRepository)
+        dockerfile: $(dockerfilePath)
+        containerRegistry: $(dockerRegistryServiceConnection)
+        tags: |
+          $(tag)
+
+ # Deploy stage to your App Service 
+- stage: Deploy
+  displayName: Deploy to App Service and Azure SQL
+  jobs:
+  - job: Deploy
+    displayName: Deploy
+    pool:
+      vmImage: $(vmImageName)
+    steps:    
+    - task: AzureWebAppContainer@1
+      inputs:      
+        azureSubscription: 'Connection ARM'
+        appName: '$(applicationName)'
+        containers: '$(containerRegistry)/$(imageRepository):$(tag)'

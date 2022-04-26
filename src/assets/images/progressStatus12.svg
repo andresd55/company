@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24.423" height="28.392" viewBox="0 0 24.423 28.392">
+  <defs>
+    <clipPath id="clip">
+      <use xlink:href="#fill"/>
+    </clipPath>
+  </defs>
+  <g id="Grupo_9502" data-name="Grupo 9502" transform="translate(13235 9078)">
+    <path id="Intersección_1" data-name="Intersección 1" d="M0,0A8.349,8.349,0,0,1,7.607,5.173L0,8.35Z" transform="translate(-13222.676 -9070.17)" fill="#fff"/>
+    <g id="Grupo_9076" data-name="Grupo 9076" transform="translate(-13235 -9078)">
+      <g id="Elipse_541" data-name="Elipse 541" transform="translate(0 3.969)" fill="none" stroke="#fff" stroke-width="3">
+        <circle cx="12.211" cy="12.211" r="12.211" stroke="none"/>
+        <circle cx="12.211" cy="12.211" r="10.711" fill="none"/>
+      </g>
+      <g id="Grupo_9072" data-name="Grupo 9072" transform="translate(2.34 5.495)">
+        <line id="Línea_327" data-name="Línea 327" y1="2.035" x2="2.035" transform="translate(17.3)" fill="none" stroke="#fff" stroke-width="3"/>
+        <line id="Línea_328" data-name="Línea 328" y1="2.035" x2="2.035" transform="translate(2.035 0) rotate(90)" fill="none" stroke="#fff" stroke-width="3"/>
+      </g>
+      <g id="Rectángulo_3921" data-name="Rectángulo 3921" transform="translate(8.865)" fill="none" stroke="#fff" stroke-width="3">
+        <rect id="fill" width="6.695" height="2.976" stroke="none"/>
+        <path d="M0,1.4756014347076416h6.695103168487549M5.195103168487549,0v2.9756014347076416M6.695103168487549,1.5h-6.695103168487549M1.5,2.9756014347076416v-2.9756014347076416" fill="none" clip-path="url(#clip)"/>
+      </g>
+      <g id="Rectángulo_3922" data-name="Rectángulo 3922" transform="translate(14.072 2.105) rotate(90)" fill="none" stroke="#fff" stroke-width="3">
+        <rect width="3.72" height="3.72" stroke="none"/>
+        <rect x="1.5" y="1.5" width="0.72" height="0.72" fill="none"/>
+      </g>
+    </g>
+  </g>
+</svg>

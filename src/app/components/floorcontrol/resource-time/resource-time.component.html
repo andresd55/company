@@ -1,0 +1,512 @@
+<span (click)="closeMenu()">
+    <p-breadcrumb [model]="itemsBreadcrumb"
+                  [tittle]="'Parametrizar tiempos de la maquina' "
+                  [description]="'Descripcion de pantalla'"></p-breadcrumb>
+
+    <div class="row mt-3">
+        <div class="col-12 col-sm-8 col-md-4 order-1 order-sm-0 mt-2">
+            <app-button-finotex label="{{ 'Filtre su busqueda' }}"
+                                type="button"
+                                typeButton="secondary"
+                                [typeSize]="false"
+                                class="w-100 mr-3"
+                                (click)="showPanelFilter()"
+                                classButton="w-100 mw-20 wms"></app-button-finotex>
+        </div>
+        <div class="col-12 col-sm-4 col-md-4 mt-2">
+            <app-search-selector-principal placeholder="floor-control.orderSearch"
+                                           icon="pi pi-search"
+                                           (clickEvent)="onSubmitFilterSearch($event)"></app-search-selector-principal>
+        </div>
+    </div>
+
+    <!-- Menu de busqueda -->
+    <form [formGroup]="SearchFormAllProduct">
+        <div class="row mt-2 pr-0" [hidden]="!showfilters">
+            <div class="col-12">
+                <div class="container-serach">
+                    <div class="row">
+                        <div class="col-12 pl-0">
+                            <label class="title-search">
+                                {{ "floor-control.filters" | translate }}
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-12 col-sm-6 col-md-4 col-lg-3 mt-2 pl-0">
+                            <label>
+                                {{ "Linea de inventario" }}
+                            </label>
+                            <input type="text"
+                                   pInputText
+                                   placeholder="{{ 'Linea de inventario'   }}"
+                                   formControlName="order"
+                                   class="form-control" />
+                        </div>
+                        <div class="col-12 col-sm-6 col-md-4 col-lg-3 mt-2 pl-0">
+                            <label>
+                                {{ "Proceso"}}
+                            </label>
+                            <input type="text"
+                                   pInputText
+                                   placeholder="{{ 'Proceso' }}"
+                                   formControlName="order"
+                                   class="form-control" />
+                        </div>
+                        <div class="col-12 col-sm-6 col-md-4 col-lg-3 mt-2 pl-0">
+                            <app-datepicker [config]="settingsDate"
+                                            [submitted]="submitted"
+                                            [form]="SearchFormAllProduct"
+                                            [formDirective]="ngForm"></app-datepicker>
+                        </div>
+                        <div class="col-12 col-sm-6 col-md-4 col-lg-3 mt-2 pl-0">
+                            <label>
+                                {{ "Horas por dia" }}
+                            </label>
+                            <input type="text"
+                                   pInputText
+                                   placeholder="{{ 'Horas por dia'  }}"
+                                   formControlName="order"
+                                   class="form-control" />
+                        </div>
+                    </div>
+
+                    <div class="row mt-16">
+                        <div class="col-12 text-right">
+                            <app-button-finotex class="mr-2" label="Generar"
+                                                type="submit"
+                                                typeButton="primary"
+                                                [typeSize]="false"
+                                                (click)="searchFilter()"></app-button-finotex>
+                            <app-button-finotex class="mr-2"
+                                                label="artWork.btnReset"
+                                                type="submit"
+                                                typeButton="secondary"
+                                                [typeSize]="false"
+                                                (click)="resetFilter()"></app-button-finotex>
+
+                            <app-button-finotex label="formsGeneral.btnSearch"
+                                                type="submit"
+                                                typeButton="primary"
+                                                [typeSize]="false"
+                                                (click)="searchFilter()"></app-button-finotex>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <div class="row panel-calendar mt-16 pl-75">
+        <div class="buttoms">
+            <button class="button button-secundary button-calendar">
+                <div class="number-button">10</div>
+                <div class="day-button mt-1">Lunes</div>
+            </button>
+            <button class="button button-secundary button-calendar">
+                <div class="number-button">10</div>
+                <div class="day-button mt-1">Lunes</div>
+            </button>
+            <button class="button button-primary button-calendar">
+                <div class="number-button">10</div>
+                <div class="day-button mt-1">Lunes</div>
+            </button>
+            <button class="button button-secundary button-calendar">
+                <div class="number-button">10</div>
+                <div class="day-button mt-1">Lunes</div>
+            </button>
+            <button class="button button-secundary button-calendar">
+                <div class="number-button">10</div>
+                <div class="day-button mt-1">Lunes</div>
+            </button>
+            <button class="button button-secundary button-calendar">
+                <div class="number-button">10</div>
+                <div class="day-button mt-1">Lunes</div>
+            </button>
+            <button class="button button-secundary button-calendar">
+                <div class="number-button">10</div>
+                <div class="day-button mt-1">Lunes</div>
+            </button>
+            <button class="button button-secundary button-calendar">
+                <div class="number-button">10</div>
+                <div class="day-button mt-1">Lunes</div>
+            </button>
+            <button class="button button-secundary button-calendar">
+                <div class="number-button">10</div>
+                <div class="day-button mt-1">Lunes</div>
+            </button>
+        </div>
+        
+    </div>
+
+    <div class="row mt-16 pl-75">
+        <label for="" class="date">Abril 14 2022</label>
+    </div>
+
+    <div class="row w-100 mt-16 resource-time" >
+        <p-accordion class="w-100" >
+            <p-accordionTab header="hola"
+                            [selected]="false"
+                            class="tab"
+                            [customHeader]="true"
+                            [formStatus]="false">
+            <p-header class="w-100">
+                <div class="row w-100">
+                    <div class="col-3 separator">Codigo de maquina: <span class="result">12345678</span></div>
+                    <div class="col-3 separator text-center">Linea de inventario: <span class="result">linea 1</span></div>
+                    <div class="col-3">Codigo modelo: <span class="result">12345678</span></div>
+                    <div class="col-3 content-bar">
+                        <label for="">0</label>
+                        <div class="bar">
+                            <div class="progress">
+
+                            </div>
+                        </div>
+                        <label for="">22</label>
+                    </div>
+                </div>
+            </p-header>
+            <ng-template pTemplate="content">
+                <div class="row">
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-3 mt-2 pl-0">
+                        <label>
+                            {{ "Grupo maquinas" }}
+                        </label>
+                        <input type="text"
+                                pInputText disabled
+                                placeholder="{{ 'Grupo maquinas'  }}"
+                                formControlName="order"
+                                class="form-control" />
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-3 mt-2 pl-0">
+                        <label>
+                            {{ "Tipo proceso" }}
+                        </label>
+                        <input type="text"
+                                pInputText disabled
+                                placeholder="{{ 'Tipo proceso'  }}"
+                                formControlName="order"
+                                class="form-control" />
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-3 mt-2 pl-0">
+                        <label>
+                            {{ "Numero de turnos" }}
+                        </label>
+                        <input type="text"
+                                pInputText
+                                placeholder="{{ 'Numero de turnos'  }}"
+                                formControlName="order"
+                                class="form-control" />
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-3 mt-2 pl-0">
+                        <label>
+                            {{ "Horas por turno" }}
+                        </label>
+                        <input type="text"
+                                pInputText
+                                placeholder="{{ 'Horas por turno'  }}"
+                                formControlName="order"
+                                class="form-control" />
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-3 mt-2 pl-0">
+                        <label class="label-required">
+                            {{ "Tiempo estimado (Horas)" }}
+                        </label>
+                        <input type="text"
+                                pInputText
+                                placeholder="{{ 'Tiempo estimado (Horas)'  }}"
+                                formControlName="order"
+                                class="form-control" />
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-3 mt-2 pl-0">
+                        <label class="label-required"> 
+                            {{ "Capacidad estimada" }}
+                        </label>
+                        <input type="text"
+                                pInputText
+                                placeholder="{{ 'Capacidad estimada'  }}"
+                                formControlName="order"
+                                class="form-control" />
+                    </div>
+                </div>
+            </ng-template>
+            </p-accordionTab>
+        </p-accordion>
+    </div> <!-- row -->
+
+    <div class="row w-100 mt-16 resource-time" >
+        <p-accordion class="w-100" >
+            <p-accordionTab header="hola"
+                            [selected]="false"
+                            class="tab"
+                            [customHeader]="true"
+                            [formStatus]="false">
+            <p-header class="w-100">
+                <div class="row w-100">
+                    <div class="col-3 separator">Codigo de maquina: <span class="result">12345678</span></div>
+                    <div class="col-3 separator text-center">Linea de inventario: <span class="result">linea 1</span></div>
+                    <div class="col-3">Codigo modelo: <span class="result">12345678</span></div>
+                    <div class="col-3 content-bar">
+                        <label for="">0</label>
+                        <div class="bar">
+                            <div class="progress">
+
+                            </div>
+                        </div>
+                        <label for="">22</label>
+                    </div>
+                </div>
+            </p-header>
+            <ng-template pTemplate="content">
+                <div class="row">
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-3 mt-2 pl-0">
+                        <label>
+                            {{ "Grupo maquinas" }}
+                        </label>
+                        <input type="text"
+                                pInputText disabled
+                                placeholder="{{ 'Grupo maquinas'  }}"
+                                formControlName="order"
+                                class="form-control" />
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-3 mt-2 pl-0">
+                        <label>
+                            {{ "Tipo proceso" }}
+                        </label>
+                        <input type="text"
+                                pInputText disabled
+                                placeholder="{{ 'Tipo proceso'  }}"
+                                formControlName="order"
+                                class="form-control" />
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-3 mt-2 pl-0">
+                        <label>
+                            {{ "Numero de turnos" }}
+                        </label>
+                        <input type="text"
+                                pInputText
+                                placeholder="{{ 'Numero de turnos'  }}"
+                                formControlName="order"
+                                class="form-control" />
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-3 mt-2 pl-0">
+                        <label>
+                            {{ "Horas por turno" }}
+                        </label>
+                        <input type="text"
+                                pInputText
+                                placeholder="{{ 'Horas por turno'  }}"
+                                formControlName="order"
+                                class="form-control" />
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-3 mt-2 pl-0">
+                        <label class="label-required">
+                            {{ "Tiempo estimado (Horas)" }}
+                        </label>
+                        <input type="text"
+                                pInputText
+                                placeholder="{{ 'Tiempo estimado (Horas)'  }}"
+                                formControlName="order"
+                                class="form-control" />
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-3 mt-2 pl-0">
+                        <label class="label-required"> 
+                            {{ "Capacidad estimada" }}
+                        </label>
+                        <input type="text"
+                                pInputText
+                                placeholder="{{ 'Capacidad estimada'  }}"
+                                formControlName="order"
+                                class="form-control" />
+                    </div>
+                </div>
+            </ng-template>
+            </p-accordionTab>
+        </p-accordion>
+    </div> <!-- row -->
+
+    <div class="row w-100 mt-16 resource-time" >
+        <p-accordion class="w-100" >
+            <p-accordionTab header="hola"
+                            [selected]="false"
+                            class="tab"
+                            [customHeader]="true"
+                            [formStatus]="false">
+            <p-header class="w-100">
+                <div class="row w-100">
+                    <div class="col-3 separator">Codigo de maquina: <span class="result">12345678</span></div>
+                    <div class="col-3 separator text-center">Linea de inventario: <span class="result">linea 1</span></div>
+                    <div class="col-3">Codigo modelo: <span class="result">12345678</span></div>
+                    <div class="col-3 content-bar">
+                        <label for="">0</label>
+                        <div class="bar">
+                            <div class="progress">
+
+                            </div>
+                        </div>
+                        <label for="">22</label>
+                    </div>
+                </div>
+            </p-header>
+            <ng-template pTemplate="content">
+                <div class="row">
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-3 mt-2 pl-0">
+                        <label>
+                            {{ "Grupo maquinas" }}
+                        </label>
+                        <input type="text"
+                                pInputText disabled
+                                placeholder="{{ 'Grupo maquinas'  }}"
+                                formControlName="order"
+                                class="form-control" />
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-3 mt-2 pl-0">
+                        <label>
+                            {{ "Tipo proceso" }}
+                        </label>
+                        <input type="text"
+                                pInputText disabled
+                                placeholder="{{ 'Tipo proceso'  }}"
+                                formControlName="order"
+                                class="form-control" />
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-3 mt-2 pl-0">
+                        <label>
+                            {{ "Numero de turnos" }}
+                        </label>
+                        <input type="text"
+                                pInputText
+                                placeholder="{{ 'Numero de turnos'  }}"
+                                formControlName="order"
+                                class="form-control" />
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-3 mt-2 pl-0">
+                        <label>
+                            {{ "Horas por turno" }}
+                        </label>
+                        <input type="text"
+                                pInputText
+                                placeholder="{{ 'Horas por turno'  }}"
+                                formControlName="order"
+                                class="form-control" />
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-3 mt-2 pl-0">
+                        <label class="label-required">
+                            {{ "Tiempo estimado (Horas)" }}
+                        </label>
+                        <input type="text"
+                                pInputText
+                                placeholder="{{ 'Tiempo estimado (Horas)'  }}"
+                                formControlName="order"
+                                class="form-control" />
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-3 mt-2 pl-0">
+                        <label class="label-required"> 
+                            {{ "Capacidad estimada" }}
+                        </label>
+                        <input type="text"
+                                pInputText
+                                placeholder="{{ 'Capacidad estimada'  }}"
+                                formControlName="order"
+                                class="form-control" />
+                    </div>
+                </div>
+            </ng-template>
+            </p-accordionTab>
+        </p-accordion>
+    </div> <!-- row -->
+
+    <div class="row w-100 mt-16 resource-time" >
+        <p-accordion class="w-100" >
+            <p-accordionTab header="hola"
+                            [selected]="false"
+                            class="tab"
+                            [customHeader]="true"
+                            [formStatus]="false">
+            <p-header class="w-100">
+                <div class="row w-100">
+                    <div class="col-3 separator">Codigo de maquina: <span class="result">12345678</span></div>
+                    <div class="col-3 separator text-center">Linea de inventario: <span class="result">linea 1</span></div>
+                    <div class="col-3">Codigo modelo: <span class="result">12345678</span></div>
+                    <div class="col-3 content-bar">
+                        <label for="">0</label>
+                        <div class="bar">
+                            <div class="progress">
+
+                            </div>
+                        </div>
+                        <label for="">22</label>
+                    </div>
+                </div>
+            </p-header>
+            <ng-template pTemplate="content">
+                <div class="row">
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-3 mt-2 pl-0">
+                        <label>
+                            {{ "Grupo maquinas" }}
+                        </label>
+                        <input type="text"
+                                pInputText disabled
+                                placeholder="{{ 'Grupo maquinas'  }}"
+                                formControlName="order"
+                                class="form-control" />
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-3 mt-2 pl-0">
+                        <label>
+                            {{ "Tipo proceso" }}
+                        </label>
+                        <input type="text"
+                                pInputText disabled
+                                placeholder="{{ 'Tipo proceso'  }}"
+                                formControlName="order"
+                                class="form-control" />
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-3 mt-2 pl-0">
+                        <label>
+                            {{ "Numero de turnos" }}
+                        </label>
+                        <input type="text"
+                                pInputText
+                                placeholder="{{ 'Numero de turnos'  }}"
+                                formControlName="order"
+                                class="form-control" />
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-3 mt-2 pl-0">
+                        <label>
+                            {{ "Horas por turno" }}
+                        </label>
+                        <input type="text"
+                                pInputText
+                                placeholder="{{ 'Horas por turno'  }}"
+                                formControlName="order"
+                                class="form-control" />
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-3 mt-2 pl-0">
+                        <label class="label-required">
+                            {{ "Tiempo estimado (Horas)" }}
+                        </label>
+                        <input type="text"
+                                pInputText
+                                placeholder="{{ 'Tiempo estimado (Horas)'  }}"
+                                formControlName="order"
+                                class="form-control" />
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-3 mt-2 pl-0">
+                        <label class="label-required"> 
+                            {{ "Capacidad estimada" }}
+                        </label>
+                        <input type="text"
+                                pInputText
+                                placeholder="{{ 'Capacidad estimada'  }}"
+                                formControlName="order"
+                                class="form-control" />
+                    </div>
+                </div>
+            </ng-template>
+            </p-accordionTab>
+        </p-accordion>
+    </div> <!-- row -->
+
+    <p-toast></p-toast>
+</span>

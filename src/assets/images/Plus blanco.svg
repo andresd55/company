@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32" height="32" viewBox="0 0 32 32">
+  <defs>
+    <clipPath id="clip-Plus_blanco">
+      <rect width="32" height="32"/>
+    </clipPath>
+  </defs>
+  <g id="Plus_blanco" data-name="Plus blanco" clip-path="url(#clip-Plus_blanco)">
+    <rect width="32" height="32" fill="#fff"/>
+    <path id="Trazado_4859" data-name="Trazado 4859" d="M15.5,15.5v-6h3v6h6v3h-6v6h-3v-6h-6v-3ZM17,32A15,15,0,1,1,32,17,15,15,0,0,1,17,32Zm0-3A12,12,0,1,0,5,17,12,12,0,0,0,17,29Z" transform="translate(-1 -1)" fill="#fff"/>
+  </g>
+</svg>

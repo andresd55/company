@@ -1,0 +1,29 @@
+<div [formGroup]="form">
+  <div class="datepicker-obj row p-0 m-0">
+    <label
+      [class]="settings.required ? 'label-required' : ''"
+      for="{{ settings.ids[0] }}"
+    >
+      {{ settings.labels | translate }}
+    </label>
+    <input
+      formControlName="{{ settings.ids[0] }}"
+      type="text"
+      class="inputs is-valid-preload date-icon"
+      placeholder="{{ 'checkOut.lblSelectadate' | translate }}"
+      autocomplete="off"
+      id="{{ settings.ids[0] }}"
+      [name]="settings.ids[0]"
+      (keypress)="onKey()"
+      [readonly]="readonly"
+      (change)="OnDateSelect($event)"
+      [ngClass]="{ 'is-invalid': submitted && !IsValid(settings.ids[0]) }"
+    />
+    <em class="far fa-calendar datepicker"></em>
+    <div class="invalid-feedback mb-2">
+      {{ 'formsGeneral.lblMandatoryField' | translate }}
+    </div>
+
+    {{ ConfigureDatePicker() }}
+  </div>
+</div>

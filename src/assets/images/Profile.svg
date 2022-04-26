@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="23" height="23" viewBox="0 0 23 23">
+  <defs>
+    <clipPath id="clip-Profile">
+      <rect width="23" height="23"/>
+    </clipPath>
+  </defs>
+  <g id="Profile" clip-path="url(#clip-Profile)">
+    <rect width="23" height="23" fill="#fff"/>
+    <path id="user-circle-solid" d="M10.1,8A10.1,10.1,0,1,0,20.2,18.1,10.1,10.1,0,0,0,10.1,8Zm0,3.909a3.583,3.583,0,1,1-3.583,3.583A3.583,3.583,0,0,1,10.1,11.909Zm0,14.008A7.8,7.8,0,0,1,4.133,23.14,4.54,4.54,0,0,1,8.144,20.7a1,1,0,0,1,.289.045,5.391,5.391,0,0,0,1.665.281,5.371,5.371,0,0,0,1.665-.281,1,1,0,0,1,.289-.045,4.54,4.54,0,0,1,4.011,2.435A7.8,7.8,0,0,1,10.1,25.917Z" transform="translate(1 -7)" fill="#2b2a2a"/>
+  </g>
+</svg>

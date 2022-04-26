@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24.423" height="28.392" viewBox="0 0 24.423 28.392">
+  <defs>
+    <clipPath id="clip">
+      <use xlink:href="#fill"/>
+    </clipPath>
+  </defs>
+  <g id="Grupo_9498" data-name="Grupo 9498" transform="translate(13197.887 8961)">
+    <g id="Elipse_557" data-name="Elipse 557" transform="translate(-13194.023 -8953.168)" fill="#2b2a2a" stroke="#2b2a2a" stroke-width="3">
+      <circle cx="8.348" cy="8.348" r="8.348" stroke="none"/>
+      <circle cx="8.348" cy="8.348" r="6.848" fill="none"/>
+    </g>
+    <g id="Grupo_9494" data-name="Grupo 9494" transform="translate(-13197.887 -8961)">
+      <g id="Elipse_541" data-name="Elipse 541" transform="translate(0 3.969)" fill="none" stroke="#2b2a2a" stroke-width="3">
+        <circle cx="12.211" cy="12.211" r="12.211" stroke="none"/>
+        <circle cx="12.211" cy="12.211" r="10.711" fill="none"/>
+      </g>
+      <g id="Grupo_9072" data-name="Grupo 9072" transform="translate(2.34 5.495)">
+        <line id="Línea_327" data-name="Línea 327" y1="2.035" x2="2.035" transform="translate(17.3)" fill="none" stroke="#2b2a2a" stroke-width="3"/>
+        <line id="Línea_328" data-name="Línea 328" y1="2.035" x2="2.035" transform="translate(2.035 0) rotate(90)" fill="none" stroke="#2b2a2a" stroke-width="3"/>
+      </g>
+      <g id="Rectángulo_3921" data-name="Rectángulo 3921" transform="translate(8.865)" fill="none" stroke="#2b2a2a" stroke-width="3">
+        <rect id="fill" width="6.695" height="2.976" stroke="none"/>
+        <path d="M0,1.4756014347076416h6.695103168487549M5.195103168487549,0v2.9756014347076416M6.695103168487549,1.5h-6.695103168487549M1.5,2.9756014347076416v-2.9756014347076416" fill="none" clip-path="url(#clip)"/>
+      </g>
+      <g id="Rectángulo_3922" data-name="Rectángulo 3922" transform="translate(14.072 2.105) rotate(90)" fill="none" stroke="#2b2a2a" stroke-width="3">
+        <rect width="3.72" height="3.72" stroke="none"/>
+        <rect x="1.5" y="1.5" width="0.72" height="0.72" fill="none"/>
+      </g>
+    </g>
+    <path id="times-solid" d="M5.63,84.082l2.321-2.321a.73.73,0,0,0,0-1.032l-.516-.516a.73.73,0,0,0-1.032,0L4.082,82.535,1.761,80.214a.73.73,0,0,0-1.032,0l-.516.516a.73.73,0,0,0,0,1.032l2.321,2.321L.214,86.4a.73.73,0,0,0,0,1.032l.516.516a.73.73,0,0,0,1.032,0L4.082,85.63,6.4,87.951a.73.73,0,0,0,1.032,0l.516-.516a.73.73,0,0,0,0-1.032Z" transform="translate(-13189.758 -9028.902)" fill="#fff"/>
+  </g>
+</svg>

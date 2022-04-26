@@ -1,0 +1,127 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "cli": {
+    "analytics": "3fc1fe78-6b8f-4e5b-85ee-fcb1de52d3df"
+  },
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "Finotex": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:application": {
+          "strict": true
+        }
+      },
+      "root": "",
+      "sourceRoot": "src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "allowedCommonJsDependencies": ["lodash", "xlsx"],
+            "outputPath": "dist/Finotex",
+            "index": "src/index.html",
+            "main": "src/main.ts",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "tsconfig.app.json",
+            "assets": ["src/assets/images/Favicon.svg", "src/assets"],
+            "styles": [
+              "node_modules/jquery-ui/themes/base/all.css",
+              "node_modules/@fortawesome/fontawesome-free/css/all.min.css",
+              "src/styles.css",
+              "src/app/shared/framework-ui/primeicons/primeicons.css",
+              "src/assets/fonts/feather-font/css/iconfont.css",
+              "src/app/shared/framework-ui/primeng/theme.css"
+            ],
+            "scripts": [
+              "src/assets/vendors/core/core.js",
+              "src/assets/vendors/feather-icons/feather.min.js",
+              "node_modules/jquery-ui/ui/widget.js",
+              "node_modules/jquery-ui/ui/widgets/datepicker.js",
+              "node_modules/jquery-ui/ui/i18n/datepicker-es.js",
+              "node_modules/popper.js/dist/umd/popper.min.js"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "15mb",
+                  "maximumError": "15mb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            },
+            "QA": {
+              "optimization": {
+                "scripts": true,
+                "styles": {
+                  "minify": true,
+                  "inlineCritical": false
+                }
+              },
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.qa.ts"
+                }
+              ]
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "Finotex:build:production"
+            },
+            "development": {
+              "browserTarget": "Finotex:build:development"
+            },
+            "QA": {
+              "browserTarget": "Finotex:build:QA"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "Finotex:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "src/test.ts",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "tsconfig.spec.json",
+            "karmaConfig": "karma.conf.js",
+            "assets": ["src/assets/images/Favicon.svg", "src/assets"],
+            "styles": ["src/styles.css"],
+            "scripts": []
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "Finotex"
+}

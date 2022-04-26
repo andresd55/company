@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 24 24">
+  <defs>
+    <clipPath id="clip-Horario">
+      <rect width="24" height="24"/>
+    </clipPath>
+  </defs>
+  <g id="Horario" clip-path="url(#clip-Horario)">
+    <g id="Grupo_12443" data-name="Grupo 12443">
+      <path id="Trazado_4850" data-name="Trazado 4850" d="M0,0H24V24H0Z" fill="none"/>
+      <path id="Trazado_4851" data-name="Trazado 4851" d="M12,22A10,10,0,1,1,22,12,10,10,0,0,1,12,22Zm0-2a8,8,0,1,0-8-8A8,8,0,0,0,12,20Zm1-8h4v2H11V7h2Z" fill="#2b2a2a"/>
+    </g>
+  </g>
+</svg>

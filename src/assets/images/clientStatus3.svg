@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="332" height="310" viewBox="0 0 332 310">
+  <defs>
+    <clipPath id="clip-Ban_Circle_">
+      <rect width="332" height="310"/>
+    </clipPath>
+  </defs>
+  <g id="Ban_Circle_" data-name="Ban Circle " clip-path="url(#clip-Ban_Circle_)">
+    <path id="ban-solid" d="M124.645,0A124.645,124.645,0,1,0,249.289,124.645,124.635,124.635,0,0,0,124.645,0ZM31.161,124.645A92.918,92.918,0,0,1,48.533,70.551l130.2,130.2a93.325,93.325,0,0,1-147.567-76.1Zm169.585,54.094-130.2-130.2a93.337,93.337,0,0,1,130.2,130.2Z" transform="translate(41.355 30.355)" fill="#d6001c"/>
+  </g>
+</svg>

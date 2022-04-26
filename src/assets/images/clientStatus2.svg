@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="332" height="310" viewBox="0 0 332 310">
+  <defs>
+    <clipPath id="clip-Alert_Circle_">
+      <rect width="332" height="310"/>
+    </clipPath>
+  </defs>
+  <g id="Alert_Circle_" data-name="Alert Circle " clip-path="url(#clip-Alert_Circle_)">
+    <g id="Grupo_11687" data-name="Grupo 11687" transform="translate(17.566 6.567)">
+      <path id="check-circle-regular_1_" data-name="check-circle-regular (1)" d="M156.433,8A148.433,148.433,0,1,0,304.867,156.433,148.433,148.433,0,0,0,156.433,8Zm0,28.729a119.7,119.7,0,1,1-119.7,119.7,119.64,119.64,0,0,1,119.7-119.7" transform="translate(-8 -8)" fill="#efbe1a"/>
+      <path id="exclamation-solid" d="M64.169,130.056a24.084,24.084,0,1,1-24.084-24.084A24.112,24.112,0,0,1,64.169,130.056ZM18.788,7.586l4.094,81.887A7.225,7.225,0,0,0,30.1,96.337H50.07a7.225,7.225,0,0,0,7.216-6.864L61.381,7.586A7.225,7.225,0,0,0,54.165,0H26A7.225,7.225,0,0,0,18.788,7.586Z" transform="translate(108.347 73.017)" fill="#efbe1a"/>
+    </g>
+  </g>
+</svg>

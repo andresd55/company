@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="3" height="17" viewBox="0 0 3 17">
+  <defs>
+    <clipPath id="clip-Puntos">
+      <rect width="3" height="17"/>
+    </clipPath>
+  </defs>
+  <g id="Puntos" clip-path="url(#clip-Puntos)">
+    <g id="Componente_68_84" data-name="Componente 68 – 84">
+      <g id="Elipse_550" data-name="Elipse 550" transform="translate(0 14)" fill="#2b2a2a" stroke="#2b2a2a" stroke-width="1">
+        <circle cx="1.5" cy="1.5" r="1.5" stroke="none"/>
+        <circle cx="1.5" cy="1.5" r="1" fill="none"/>
+      </g>
+      <g id="Elipse_551" data-name="Elipse 551" transform="translate(0 7)" fill="#2b2a2a" stroke="#2b2a2a" stroke-width="1">
+        <circle cx="1.5" cy="1.5" r="1.5" stroke="none"/>
+        <circle cx="1.5" cy="1.5" r="1" fill="none"/>
+      </g>
+      <g id="Elipse_552" data-name="Elipse 552" fill="#2b2a2a" stroke="#2b2a2a" stroke-width="1">
+        <circle cx="1.5" cy="1.5" r="1.5" stroke="none"/>
+        <circle cx="1.5" cy="1.5" r="1" fill="none"/>
+      </g>
+    </g>
+  </g>
+</svg>

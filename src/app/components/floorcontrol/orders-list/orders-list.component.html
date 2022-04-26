@@ -1,0 +1,941 @@
+<span (click)="closeMenu()">
+    <p-breadcrumb [model]="itemsBreadcrumb"
+                  [tittle]="'floor-control.tittleSequence'"></p-breadcrumb>
+
+    <div class="row mt-3">
+        <div class="col-2 col-sm-1 order-1 order-sm-0 mt-2">
+            <app-button-img-finotex class="filter"
+                                    label=""
+                                    type="button"
+                                    typeButton="secondary"
+                                    [typeSize]="true"
+                                    icon="../../../assets/images/Filtros.svg"
+                                    classButton="br-100 filters-20"
+                                    (click)="showPanelFilter()"></app-button-img-finotex>
+        </div>
+
+        <div class="col-12 col-sm-4 mt-2">
+            <app-search-selector-principal placeholder="floor-control.orderSearch"
+                                           icon="pi pi-search"
+                                           (clickEvent)="onSubmitFilterSearch($event)"></app-search-selector-principal>
+        </div>
+
+        <div class="col-8 col-sm-5 mt-2 text-right iphone-se ">
+            <app-button-finotex label="{{ 'floor-control.buttonAssignment' | translate }}"
+                                type="button"
+                                typeButton="primary"
+                                [typeSize]="false"
+                                class="mr-3 w-100"
+                                classButton="mr-3 w-100"></app-button-finotex>
+        </div>
+        <div class="col-2 col-sm-2 mt-2 pl-0 pr-0 text-right w-100 iphone-se">
+            <app-button-finotex label="{{ 'floor-control.buttonWms' | translate }}"
+                                type="button"
+                                typeButton="secondary"
+                                [typeSize]="false"
+                                class="w-100 mr-3"
+                                classButton="w-100 mw-20 wms"></app-button-finotex>
+        </div>
+    </div>
+
+    <!-- Menu de busqueda -->
+    <form [formGroup]="SearchFormAllProduct">
+        <div class="row mt-2 pr-0" [hidden]="!showfilters">
+            <div class="col-12">
+                <div class="container-serach">
+                    <div class="row">
+                        <div class="col-12 pl-0">
+                            <label class="title-search">
+                                {{ "floor-control.filters" | translate }}
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-12 col-sm-6 col-md-4 mt-2 pl-0">
+                            <label for="txtSchedule">
+                                {{ "floor-control.state" | translate }}
+                            </label>
+                            <p-dropdown [options]="states"
+                                        optionValue="codeState"
+                                        optionLabel="nameState"
+                                        class="w-100"
+                                        formControlName="states"
+                                        placeholder="{{('formsGeneral.selSelectOpcion' | translate) || ' '}}"
+                            >
+                            <ng-template pTemplate="selectedItem" let-states>
+                                <div class="country-item country-item-value">
+                                  <img
+                                    alt=""
+                                    appImage
+                                    src="assets/images/progressStatus{{
+                                        states.codeState
+                                    }}1.svg"
+                                    class="simple-img progressStatus{{ states.codeState }}"
+                                    width="24px"
+                                    height="24px"
+                                  />
+                                  <span class="item-img">{{ states.nameState }}</span>
+                                </div>
+                              </ng-template>
+                              <ng-template let-states pTemplate="item">
+                                <div class="progresStatus-item">
+                                  <img
+                                    alt=""
+                                    appImage
+                                    src="assets/images/progressStatus{{
+                                        states.codeState
+                                    }}1.svg"
+                                    class="simple-img progressStatus{{ states.codeState }}"
+                                    width="24px"
+                                    height="24px"
+                                  />
+                                  <span class="item-img">{{ states.nameState }}</span>
+                                </div>
+                            </ng-template>
+                     </p-dropdown>
+                        </div>
+                        <div class="col-12 col-sm-6 col-md-4 mt-2 pl-0">
+                            <label>
+                                {{ "floor-control.numberOrder" | translate }}
+                            </label>
+                            <input type="text"
+                                   pInputText
+                                   placeholder="{{ 'floor-control.numberOrder' | translate  }}"
+                                   formControlName="order"
+                                   class="form-control" />
+                        </div>
+                        <div class="col-12 col-sm-6 col-md-4 mt-2 pl-0">
+                            <label>
+                                {{ "floor-control.code" | translate }}
+                            </label>
+                            <input type="text"
+                                   pInputText
+                                   placeholder="{{ 'floor-control.code' | translate  }}"
+                                   formControlName="code"
+                                   class="form-control" />
+                        </div>
+                        <div class="col-12 col-sm-6 col-md-4 mt-2 pl-0">
+                            <app-datepicker [config]="settingsDatePromised"
+                                            [submitted]="submitted"
+                                            [form]="SearchFormAllProduct"
+                                            [formDirective]="ngForm"></app-datepicker>
+                        </div>
+                        <div class="col-12 col-sm-6 col-md-4 mt-2 pl-0">
+                            <app-datepicker [config]="settingsDateAproved"
+                                            [submitted]="submitted"
+                                            [form]="SearchFormAllProduct"
+                                            [formDirective]="ngForm"></app-datepicker>
+                        </div>
+                        <div class="col-12 col-sm-6 col-md-4 mt-2 pl-0">
+                            <label for="txtSchedule">
+                                {{ "floor-control.client" | translate }}
+                            </label>
+                            <p-dropdown [filter]="true"
+                                        [options]="customers"
+                                        optionValue="customerId"
+                                        optionLabel="customerName"
+                                        class="w-100"
+                                        formControlName="customers"
+                                        placeholder="{{('formsGeneral.selSelectOpcion' | translate) || ' '}}"></p-dropdown>
+                        </div>
+                        <div class="col-12 col-sm-6 col-md-8 mt-2 pl-0">
+                            <label>
+                                {{ "floor-control.Description" | translate }}
+                            </label>
+                            <input type="text"
+                                   pInputText
+                                   placeholder="{{ 'products.lblProductName' | translate }}"
+                                   class="form-control"
+                                   formControlName="description" />
+                        </div>
+                        <div class="col-12 col-sm-6 col-md-4 mt-2 pl-0 pr-75">
+                            <label for="txtSchedule">
+                                {{ "floor-control.cut" | translate }}
+                            </label>
+                            <p-dropdown [filter]="true"
+                                        [options]="cuts"
+                                        optionValue="cutId"
+                                        optionLabel="cutName"
+                                        class="w-100"
+                                        formControlName="cuts"
+                                        placeholder="{{('formsGeneral.selSelectOpcion' | translate) || ' '}}"></p-dropdown>
+                        </div>
+                    </div>
+
+                    <div class="row mt-16">
+                        <div class="col-12 text-right">
+                            <app-button-finotex class="mr-2"
+                                                label="artWork.btnReset"
+                                                type="submit"
+                                                typeButton="secondary"
+                                                [typeSize]="false"
+                                                (click)="resetFilter()"></app-button-finotex>
+
+                            <app-button-finotex label="formsGeneral.btnSearch"
+                                                type="submit"
+                                                typeButton="primary"
+                                                [typeSize]="false"
+                                                (click)="searchFilter()"></app-button-finotex>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <div class="row mt-16 pl-75">
+        <div class="board">
+
+            <div class="board-wrapper">
+
+                <div class="board-columns" cdkDropListGroup *ngIf="board">
+                    <div class="board-column" *ngFor="let column of board.columns; let numberColumn = index">
+                        <div class="column-title d-flex">
+                            <span class="f-18">{{ column.state | translate }}</span>
+                            <img class="points simple-img"
+                                 src="../../../assets/images/Puntos.svg"
+                                 alt="Progres Status" appImage (click)="showMenu($event, column)" />
+                            <p-contextMenu [items]="items" [visible]="column.menuVisible" [customerId]="1"
+                                           (itemClick)="onItemClick($event,column)" (subItemClick)="onSubItemClick($event,column)"
+                                           (click)="showMenu($event, column)"></p-contextMenu>
+                        </div>
+
+                        <div class="orders-container"
+                             *ngIf="column.orders"
+                             id={{column.productionStatusId}}
+                             cdkDropList
+                             [cdkDropListData]="column.orders"
+                             (cdkDropListDropped)="drop($event)">
+                            <div class="order" *ngFor="let item of column.orders"
+                                 cdkDrag
+                                 id={{column.productionStatusId}}
+                                 [cdkDragData]="item"
+                                 (dblclick)="doubleClick(item)">
+                                <div class="order-header w-100">
+                                    <img class="progress-status simple-img"
+                                         src="../../../assets/images/progressStatus{{item.semaphoreStatusId}}1.svg"
+                                         alt="Progres Status" appImage />
+                                    <div class="tittle">
+                                        <div class="w-100 f-16">{{ "floor-control.numberOrder" | translate }}</div>
+                                        <div class="w-100 f-18">{{ item.productionOrderId }}</div>
+                                    </div>
+                                    <div class="buttons">
+                                        <button *ngIf="column.canPreviousState && numberColumn != 0"
+                                                pButton
+                                                type="button"
+                                                id="artFileDesigner"
+                                                icon="far fa-arrow-alt-circle-left f-20"
+                                                class="button button-secundary previous"
+                                                (click)="previousState(item,column)"></button>
+                                        <button pButton
+                                                type="button"
+                                                id="artFileDesigner"
+                                                icon="far fa-arrow-alt-circle-right f-20"
+                                                class="button button-primary next
+                                          {{ !(column.canPreviousState && numberColumn != 0 ) ? 'next-only' : '' }}"
+                                                (click)="nextState(item,column)"></button>
+                                    </div>
+                                </div>
+
+                                <div class="order-body">
+                                    <div class="h-20">
+                                        <span class="order-property">
+                                            {{ "floor-control.code" | translate }}:
+                                        </span>
+                                        <span class="order-prop-description">
+                                            {{ item.productId }}
+                                        </span>
+                                    </div>
+                                    <div class="h-20">
+                                        <span class="order-property">
+                                            {{ "floor-control.promisedDate" | translate }}:
+                                        </span>
+                                        <span class="order-prop-description">
+                                            {{ language == "en" ? (item.promisedDate | date:"MMM/dd/yyyy") :  (item.promisedDate | date:"dd/MMM/yyyy")}}
+                                        </span>
+                                    </div>
+                                    <div class="h-20">
+                                        <span class="order-property">
+                                            {{ "floor-control.quantity" | translate }}:
+                                        </span>
+                                        <span class="order-prop-description">
+                                            {{ item.quantity | number:'1.2-2' }}
+                                        </span>
+                                    </div>
+                                    <div class="h-20 d-flex">
+                                        <span class="order-property-a" (click)="showDetail(item)">
+                                            {{ "floor-control.viewOrder" | translate }}
+                                        </span>
+                                        <button pButton pRipple type="button" (click)="openPreviewFile(item)"
+                                                pTooltip="<img src='{{item.image}}' />"
+                                                icon="far fa-image f-20" class="button button-secundary"></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="order tittle text-center ml-0 mr-0 w-100 view-more" (click)="viewMore(column)" *ngIf="column.orders?.length > 0">
+                                {{ "floor-control.viewMore" | translate }}
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    <app-button-icon-finotex class="change-conf"
+                             label=""
+                             icon="fas fa-chevron-left arrow"
+                             type="button"
+                             typeButton="primary"
+                             classButton="button button-primary change-conf"
+                             [typeSize]="false"
+                             (click)="openConfiguration()"></app-button-icon-finotex>
+    <app-button-img-finotex class="move-order"
+                            label=""
+                            type="button"
+                            typeButton="primary"
+                            [typeSize]="true"
+                            icon="../../../assets/images/Plus blanco 2.svg"
+                            classButton="button button-primary move-order"
+                            (click)="displayMoveOrder = true"></app-button-img-finotex>
+
+    <!-- dialog production -->
+    <p-dialog header="{{ 'floor-control.pay-production' | translate }}"
+              [(visible)]="showDialogProduction"
+              [modal]="true"
+              [baseZIndex]="10000"
+              [draggable]="false"
+              [resizable]="false"
+              [style]="{ width: '90vw' }"
+              class="check"
+              (onHide)="closePaymentProduction()"
+              >
+        <div class="row production-order">
+          {{ 'floor-control.numberOrder' | translate }} {{ProductionOrderId}}
+        </div>
+        <div class="table-operators">
+          <div class="row header-operator w-100">
+              <div class="col-9 pl-0">
+                <label>{{ 'floor-control.operator' | translate }}</label>
+              </div>
+              <div class="col-3">
+                <label>{{ 'floor-control.actions' | translate }}</label>
+              </div>
+          </div> <!-- row -->
+          <div class="row w-100 row-operator" *ngFor="let operator of p.controls; let i = index">
+              <div class="col-9 pl-0">
+                <div class="input-group"  [formGroup]="operator">
+                    <input type="text"
+                            (keypress)="onKeyPressNumber($event)"
+                            oninput="this.value = this.value.length > 9 ? (this.value.toString().slice(0, 10)) : Math.abs(this.value)" 
+                            class="form-control inputs id"
+                            pInputTextarea
+                            formControlName="identification"
+                            placeholder="{{ 'floor-control.operator' | translate }} {{i+1}}"/>
+                    <div class="input-group-append">
+                        <button pButton
+                                type="button"
+                                class="button button-primary button-bar-code search">
+                            <img class="bar-code-img"
+                                  src="../../../assets/images/Grafico_barras.svg"
+                                  alt="shopping cart" appImage />
+                        </button>
+                    </div>
+                </div>
+              </div>
+              <div class="col-3 d-flex">
+                <img *ngIf="i == p.controls.length - 1" class="icon-production m-0" src="../../../assets/images/Plus con circulo.svg"
+                (click)="addOperator()" alt="profile" />
+                <img class="icon-production {{i != p.controls.length - 1 ? 'ml-0' : ''}}" src="../../../assets/images/trash-alt-solid.svg" 
+                (click)="removeOperator()" alt="profile" />
+              </div>
+          </div> <!-- row -->
+        </div>
+        <div class="col-12 mt-16 pr-0 text-right">
+            <button                     
+                    pButton
+                    type="button"
+                    [disabled]="enableSaveProduction()"
+                    (click)="saveProduction()"
+                    label="" class="button button-primary ">
+                {{ "floor-control.save-changes" | translate }}
+            </button>
+        </div>
+        <ng-template pTemplate="footer">
+        </ng-template>
+    </p-dialog>
+
+    <!-- checkList -->
+    <p-dialog header="{{ 'floor-control.check-list' | translate }}"
+              [(visible)]="showCheckList"
+              [modal]="true"
+              [baseZIndex]="10000"
+              [draggable]="false"
+              [resizable]="false"
+              [style]="{ width: '90vw' }"
+              class="check"
+              (onHide)="closeCheckList()"
+              (onShow)="OpenCheckList()"
+              >
+        <div class="row w-100 mt-16" *ngFor="let item of c.controls; let i = index">
+            <p-accordion class="w-100" [formGroup]="item">
+                <p-accordionTab #tab header="{{ checkList[i]?.questionDescription }}"
+                                [selected]="false"
+                                class="tab"
+                                (checkChange)="checkChange($event,tab)"
+                                [formStatus]="false">
+                    <ng-template pTemplate="content">
+                        <div class="row">
+                            <div class="col-12 pl-0 pr-0">
+                                <label>{{ "artWork.lblObservations" | translate }}</label>
+                                <textarea formControlName="Observations"
+                                          [rows]="6"
+                                          class="inputs"
+                                          pInputTextarea
+                                          placeholder="{{ 'artWork.lblObservations' | translate }}"
+                                          
+                                          id="observations{{i}}" autoResize="true"></textarea>
+                            </div>
+                        </div>
+                    </ng-template>
+                </p-accordionTab>
+            </p-accordion>
+        </div> <!-- row -->
+        <div class="col-12 mt-16 pr-0 text-right">
+            <button pButton
+                    type="button"
+                    (click)="saveCheckList()"
+                    label="" class="button button-primary ">
+                {{ "floor-control.save-changes" | translate }}
+            </button>
+        </div>
+        <ng-template pTemplate="footer">
+        </ng-template>
+    </p-dialog>
+
+    <!-- chage configuration -->
+    <p-dialog header="{{ 'floor-control.advanceOrder' | translate }}"
+              [(visible)]="displayChangeConfiguration"
+              [modal]="true"
+              [styleClass]="'changeConfigurationDialog'"
+              [contentStyleClass]="'p-0'"
+              [baseZIndex]="10000"
+              [draggable]="false"
+              [showHeader]="false"
+              [resizable]="false">
+        <form [formGroup]="floorControlForm">
+            <app-button-icon-finotex class="change-conf"
+                                     label=""
+                                     icon="fas fa-chevron-right arrow"
+                                     type="button"
+                                     typeButton="primary"
+                                     classButton="button button-primary change-conf"
+                                     [typeSize]="false"
+                                     (click)="displayChangeConfiguration = false"></app-button-icon-finotex>
+            <div class="row w-100 container-conf">
+                <div class="col-12">
+                    <div class="d-flex justify-content-between align-items-baseline mb-3">
+                        <h4 class="ttile-page tittle-conf">
+                            {{ 'floor-control.tittle-conf' | translate }}
+                        </h4>
+                    </div>
+                </div>
+                <hr class="hr">
+                <div class="col-12">
+                    <p class="description-page description-conf">
+                        {{ 'floor-control.description' | translate }}
+                    </p>
+                </div>
+                <div class="col-1 mt-16 ">
+                    <img class="icon-conf" src="../../../../assets/images/Planta.svg" alt="profile" />
+                </div>
+                <div class="col-11 mt-16 ">
+                    <label for="txtProductionPlant f-14">
+                        {{ "floor-control.production-plant" | translate }}
+                    </label>
+                    <p-dropdown (onChange)="changePlant($event.value)"
+                                [options]="plants"
+                                optionValue="plantId"
+                                optionLabel="plantName"
+                                class="w-100"
+                                formControlName="plants"
+                                placeholder="{{('formsGeneral.selSelectOpcion' | translate) || ' '}}"></p-dropdown>
+                </div>
+                <div class="col-1 mt-16 ">
+                    <img class="icon-conf" src="../../../../assets/images/Proceso.svg" alt="profile" />
+                </div>
+                <div class="col-11 mt-16">
+                    <label for="txtProcess">
+                        {{ "floor-control.process" | translate }}
+                    </label>
+                    <p-dropdown [options]="process"
+                                optionValue="processId"
+                                optionLabel="processName"
+                                class="w-100"
+                                formControlName="process"
+                                placeholder="{{('formsGeneral.selSelectOpcion' | translate) || ' '}}"></p-dropdown>
+                </div>
+                <div class="col-1 mt-16 " *ngIf=isOperator>
+                    <img class="icon-conf" src="../../../../assets/images/Horario.svg" alt="profile" />
+                </div>
+                <div class="col-11 mt-16" *ngIf=isOperator>
+                    <label for="txtSchedule">
+                        {{ "floor-control.schedule" | translate }}
+                    </label>
+                    <p-dropdown [options]="productionMastersSchedule"
+                                optionValue="codeSchedule"
+                                optionLabel="nameSchedule"
+                                class="w-100"
+                                formControlName="productionMastersSchedule"
+                                placeholder="{{('formsGeneral.selSelectOpcion' | translate) || ' '}}"></p-dropdown>
+                </div>
+                <div class="col-1 mt-16 " *ngIf=isOperator>
+                    <img class="icon-conf" src="../../../../assets/images/Turno.svg" alt="profile" />
+                </div>
+                <div class="col-11 mt-16" *ngIf=isOperator>
+                    <label for="txtTurn">
+                        {{ "floor-control.turn" | translate }}
+                    </label>
+                    <p-dropdown [options]="productionMastersTurns"
+                                optionValue="codeTurn"
+                                optionLabel="nameTurn"
+                                class="w-100"
+                                formControlName="productionMastersTurns"
+                                placeholder="{{('formsGeneral.selSelectOpcion' | translate) || ' '}}"></p-dropdown>
+                </div>
+                <div class="col-1 mt-16 " *ngIf=isOperator>
+                    <img class="icon-conf" src="../../../../assets/images/Identificacion.svg" alt="profile" />
+                </div>
+                <div class="col-11 mt-16" *ngIf=isOperator>
+                    <label for="txtIdentification" class="w-100">
+                        {{ "floor-control.identification" | translate }}
+                    </label>
+                    <div class="input-group">
+                        <input type="text"
+                               class="form-control inputs id"
+                               pInputTextarea
+                               formControlName="identification"
+                               placeholder="{{ 'floor-control.identification' | translate }}" />
+                        <div class="input-group-append">
+                            <button pButton
+                                    type="button"
+                                    class="button button-primary button-bar-code search">
+                                <img class="bar-code-img"
+                                     src="../../../assets/images/Grafico_barras.svg"
+                                     alt="shopping cart" appImage />
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-12 mt-16 mb-16 pr-75 text-right">
+                    <button pButton
+                            type="button" [disabled]="floorControlForm.invalid"
+                            (click)="continueProcess()" iconPos="right" icon="fas fa-arrow-right"
+                            label="" class="button button-primary btn-sig">
+                        {{ "floor-control.continue" | translate }}
+                    </button>
+                </div>
+            </div>
+        </form>
+    </p-dialog>
+    <p-dialog [(visible)]="displayDialogProcessOperator"
+              [contentStyleClass]="'border-top'"
+              [modal]="true"
+              [baseZIndex]="10000"
+              [draggable]="false"
+              [showHeader]="false"
+              [resizable]="false"
+              [style]="{ width: '500px' }">
+        <div class="row">
+            <div class="col-md-12 text-center font50">
+                <img _ngcontent-amv-c221=""
+                     width="60px"
+                     height="60px"
+                     src="../../../assets/images/Alert.svg"
+                     alt="shopping cart"
+                     class="simple-img"
+                     appImage />
+            </div>
+            <div class="col-md-12 text-center mt-24">
+                <p>{{ "floor-control.validate-process-operator" | translate }}</p>
+            </div>
+        </div>
+        <ng-template pTemplate="footer">
+            <div class="col-md-12 text-center">
+                <p-button (click)="closeCommentConfirmation()"
+                          label="{{ 'floor-control.lblOk' | translate }}"
+                          styleClass="button button-primary text-center"></p-button>
+            </div>
+        </ng-template>
+    </p-dialog>
+
+    <!-- button z index -->
+    <p-dialog header="{{ 'floor-control.advanceOrder' | translate }}"
+              [(visible)]="displayMoveOrder"
+              [modal]="true"
+              [styleClass]="'moveOrderDialog'"
+              [contentStyleClass]="'p-0'"
+              [baseZIndex]="10000"
+              [draggable]="false"
+              [resizable]="false"              
+              >
+        <div class="row">
+            <div class="col-12 first-row">
+                <form action="">
+                    <label for="txtEnterOrder" class="w-100">
+                        {{ "floor-control.EnterOrder" | translate }}
+                    </label>
+                    <div class="input-group">
+                        <input type="text"
+                               class="form-control inputs order-code"
+                               pInputTextarea
+                               placeholder="{{ 'floor-control.EnterOrder' | translate }}"
+                               id="txEnterOrder"
+                               (input)="orderAdvance = $event.target.value" />
+                        <div class="input-group-append">
+                            <button pButton
+                                    type="button"
+                                    id="artFileDesigner"
+                                    icon="far fa-arrow-alt-circle-right f-18"
+                                    (click)="advanceOrder()"
+                                    class="button button-primary next"></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-12 mt-16 text-center p-24">
+                <p class="p-order">{{ 'floor-control.captureCodeOrder' | translate }}</p>
+            </div>
+            <div class="col-12 p-24">
+                <app-button-img-finotex label="floor-control.captureOrder"
+                                        icon="../../../assets/images/Grafico_barras.svg"
+                                        type="submit"
+                                        iconPos="right"
+                                        classButton="w-100 bar mt-16"
+                                        typeButton="primary"
+                                        [typeSize]="false"
+                                        class="w-100"></app-button-img-finotex>
+            </div>
+        </div>
+        <ng-template pTemplate="footer"></ng-template>
+    </p-dialog>
+
+    <!-- image -->
+    <p-viewer header="{{ 'floor-control.Description' | translate   }}"
+              [(visible)]="displayFilePreview"
+              [modal]="true"
+              [baseZIndex]="10000"
+              [draggable]="false"
+              [resizable]="false"
+              [style]="{ width: '500px' }">
+        <div class="image-viewer">
+            <img class="simple-img" src="{{ order?.image }}" alt="" appImage />
+        </div>
+        <ng-template pTemplate="footer"></ng-template>
+    </p-viewer>
+
+    <!-- detail -->
+    <p-dialog header="{{ 'floor-control.numberOrder' | translate }} {{detailOrder.productionOrderId}}"
+              [(visible)]="displayDetail"
+              [modal]="true"
+              [baseZIndex]="10000"
+              [draggable]="false"
+              [resizable]="false"
+              [style]="{ width: '90vw' }">
+        <div class="row">
+            <div class="col-12 col-sm-6 col-md-4 mt-16 order-md-first">
+                <label for="txtElevadorMts">{{'floor-control.client' | translate}}</label>
+                <input id="txtElevadorMts" type="text" class="inputs"
+                       placeholder="{{detailOrder.customerName}}"
+                       disabled>
+            </div>
+            <div class="col-12 col-sm-12 col-md-8 mt-16 order-first">
+                <label for="txtElevadorMts">{{'floor-control.Description' | translate }}</label>
+                <input id="txtElevadorMts" type="text" class="inputs"
+                       placeholder="{{detailOrder.productName}}"
+                       disabled />
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 mt-16">
+                <label for="txtElevadorMts">{{'floor-control.type' | translate}}</label>
+                <input id="txtElevadorMts" type="text" class="inputs"
+                       placeholder="{{detailOrder.orderType}}"
+                       disabled />
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 mt-16">
+                <label for="txtElevadorMts">{{'floor-control.unitCode' | translate}}</label>
+                <input id="txtElevadorMts" type="text" class="inputs"
+                       placeholder="{{detailOrder.productId}}"
+                       disabled />
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 mt-16">
+                <label for="txtElevadorMts">{{'floor-control.cut' | translate}}</label>
+                <input id="txtElevadorMts" type="text" class="inputs"
+                       placeholder="{{detailOrder.cutName}}"
+                       disabled />
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 mt-16">
+                <label for="txtElevadorMts">{{'floor-control.subLine' | translate}}</label>
+                <input id="txtElevadorMts" type="text" class="inputs"
+                       placeholder="{{detailOrder.subLineName}}"
+                       disabled />
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 mt-16">
+                <label for="txtElevadorMts">{{'floor-control.quality' | translate}}</label>
+                <input id="txtElevadorMts" type="text" class="inputs"
+                       placeholder="{{detailOrder.qualityName}}"
+                       disabled />
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 mt-16">
+                <label for="txtElevadorMts">{{'floor-control.warp' | translate}}</label>
+                <input id="txtElevadorMts" type="text" class="inputs"
+                       placeholder="{{detailOrder.warpId}}"
+                       disabled />
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 mt-16">
+                <label for="txtElevadorMts">{{'floor-control.width' | translate}}</label>
+                <input id="txtElevadorMts" type="text" class="inputs"
+                       placeholder="{{detailOrder.widthId}}"
+                       disabled />
+            </div>
+
+            <div class="col-12 col-sm-6 col-md-4 mt-16">
+                <label for="txtElevadorMts">{{'floor-control.size' | translate}}</label>
+                <input id="txtElevadorMts" type="text" class="inputs"
+                       placeholder="{{detailOrder.sizes}}"
+                       disabled />
+            </div>
+
+            <div class="col-12 col-sm-6 col-md-4 mt-16">
+                <label for="txtElevadorMts">{{'floor-control.unit' | translate}}</label>
+                <input id="txtElevadorMts" type="text" class="inputs"
+                       placeholder="{{detailOrder.unitMeasureId}}"
+                       disabled />
+            </div>
+
+            <div class="col-12 col-sm-6 col-md-4 mt-16">
+                <label for="txtElevadorMts">{{'floor-control.purchaseOrder' | translate}}</label>
+                <input id="txtElevadorMts" type="text" class="inputs"
+                       placeholder="{{detailOrder.customerOrderNumber}}"
+                       disabled />
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 mt-16">
+                <label for="txtElevadorMts">{{'floor-control.approved' | translate}}</label>
+                <input id="txtElevadorMts" type="text" class="inputs"
+                       placeholder='{{ language == "en" ? (detailOrder.approvedDate | date:"MMM/dd/yyyy") : (detailOrder.approvedDate | date:"MMM/dd/yyyy") }}'
+                       disabled />
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 mt-16">
+                <label for="txtElevadorMts">{{'floor-control.bufferStatus' | translate}}</label>
+                <input id="txtElevadorMts" type="text" class="inputs"
+                       placeholder="{{detailOrder.bufferStatus}}"
+                       disabled />
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 mt-16">
+                <label for="txtElevadorMts">{{'floor-control.startRRC' | translate}}</label>
+                <input id="txtElevadorMts" type="text" class="inputs"
+                       placeholder='{{ language == "en" ? (detailOrder.rrcStart | date:"MMM/dd/yyyy") : (detailOrder.rrcStart | date:"MMM/dd/yyyy") }}'
+                       disabled />
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 mt-16">
+                <label for="txtElevadorMts">{{'floor-control.dispatchDelivery' | translate}}</label>
+                <input id="txtElevadorMts" type="text" class="inputs"
+                       placeholder='{{ language == "en" ? (detailOrder.deliveryToDispatch | date:"MMM/dd/yyyy") : (detailOrder.deliveryToDispatch | date:"MMM/dd/yyyy") }}'
+                       disabled />
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 mt-16">
+                <label for="txtElevadorMts">{{'floor-control.requiredDate' | translate}}</label>
+                <input id="txtElevadorMts" type="text" class="inputs"
+                       placeholder="{{detailOrder.dateRequired}}"
+                       disabled />
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 mt-16">
+                <label for="txtElevadorMts">{{'floor-control.processDays' | translate}}</label>
+                <input id="txtElevadorMts" type="text" class="inputs"
+                       placeholder="{{detailOrder.daysInProcess}}"
+                       disabled />
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 mt-16 pr-75">
+                <label for="txtElevadorMts">{{'floor-control.totalDays' | translate}}</label>
+                <input id="txtElevadorMts" type="text" class="inputs"
+                       placeholder="{{detailOrder.totalsDays}}"
+                       disabled />
+            </div>
+        </div> <!-- row -->
+        <ng-template pTemplate="footer">
+        </ng-template>
+    </p-dialog>
+
+    <!-- totalizado -->
+    <p-dialog header="{{ 'floor-control.tittleTotalized' | translate }} {{ ('floor-control.'+nameActualColumn) | translate }}"
+              [(visible)]="showTotalizado"
+              [modal]="true"
+              [baseZIndex]="10000"
+              [draggable]="false"
+              [resizable]="false"
+              [style]="{ width: '90vw' }">
+        <div class="row">
+            <div class="col-12 col-sm-6 col-md-4 mt-16 order-md-first">
+                <label for="txtElevadorMts">{{'floor-control.numberOrders' | translate}}</label>
+                <input id="txtElevadorMts" type="text" class="inputs"
+                       placeholder="{{totalizedStatus.ordersTotal}}"
+                       disabled />
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 mt-16 order-first">
+                <label for="txtElevadorMts">{{'floor-control.units' | translate }}</label>
+                <input id="txtElevadorMts" type="text" class="inputs"
+                       placeholder="{{totalizedStatus.unitsTotal  | number:'1.2-2'}}"
+                       disabled />
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 mt-16">
+                <label for="txtElevadorMts">{{'floor-control.meters' | translate}}</label>
+                <input id="txtElevadorMts" type="text" class="inputs"
+                       placeholder="{{totalizedStatus.metersTotal | number:'1.2-2'}}"
+                       disabled />
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 pr-75 mt-16">
+                <label for="txtElevadorMts">{{'floor-control.equivalentMeters' | translate}}</label>
+                <input id="txtElevadorMts" type="text" class="inputs"
+                       placeholder="{{totalizedStatus.equivalentMetersTotal | number:'1.2-2'}}"
+                       disabled />
+            </div>
+        </div> <!-- row -->
+        <ng-template pTemplate="footer">
+        </ng-template>
+    </p-dialog>
+   
+    <!-- advance state -->
+    <p-dialog
+  [(visible)]="showAdvanceSuccessful"
+  [contentStyleClass]="'border-top'"
+  [modal]="true"
+  [baseZIndex]="10000"
+  [draggable]="false"
+  [showHeader]="false"
+  [resizable]="false"
+  [style]="{ width: '500px' }"
+>
+  <div class="row">
+    <div class="col-md-12 text-center font50">
+      <img
+        _ngcontent-amv-c221=""
+        width="60px"
+        height="60px"
+        src="../../../assets/images/success.svg"
+        alt="shopping cart"
+        class="simple-img"
+        appImage
+      />
+    </div>
+    <div class="col-md-12 text-center mt-24">
+      <p class="font-weight-bold f-18">{{ "floor-control.change-state-successfull" | translate }}</p>
+    </div>    
+    <div class="col-md-12 text-center mt-24 f-14" >
+      
+      <p *ngIf="!this.nameProcessNext">
+        {{ "floor-control.change-state-order" | translate }}
+        <b class="font-weight-bold">{{showAdvanceNumberOrder}}</b>
+        {{ "floor-control.change-state-successfull-transferred" | translate }}
+        <b class="font-weight-bold">{{ ("floor-control."+nameStateNext) | translate }}.</b>        
+      </p>      
+
+      <p *ngIf="this.nameProcessNext">
+        {{ "floor-control.change-state-order" | translate }}
+        <b class="font-weight-bold">{{showAdvanceNumberOrder}}</b>
+        {{ "floor-control.change-state-successfull-process" | translate }}
+        {{this.nameProcessNext}}
+        {{ "floor-control.change-state-successfull-transferred-finalized" | translate }}        
+        <b class="font-weight-bold">{{ ("floor-control."+nameStateNext) | translate }}.</b>        
+      </p>      
+
+    </div>    
+  </div>
+
+  <ng-template pTemplate="footer">
+    <div class="col-md-12 text-center">
+      <p-button
+        (click)="closeShowAdvanceSuccessful()"
+        label="{{ 'floor-control.lblOk' | translate }}"
+        styleClass="button button-primary text-center"
+      ></p-button>
+    </div>
+  </ng-template>
+    </p-dialog>
+
+    <!-- fail advance state -->
+    <p-dialog [(visible)]="showAdvanceFail"
+              [contentStyleClass]="'border-top'"
+              [modal]="true"
+              [baseZIndex]="10000"
+              [draggable]="false"
+              [showHeader]="false"
+              [resizable]="false"
+              [style]="{ width: '500px' }">
+        <div class="row">
+            <div class="col-md-12 text-center font50">
+                <img _ngcontent-amv-c221=""
+                     width="60px"
+                     height="60px"
+                     src="../../../assets/images/Alert.svg"
+                     alt="shopping cart"
+                     class="simple-img"
+                     appImage />
+            </div>
+            <div class="col-md-12 text-center mt-24">
+                <p>
+                    {{ "floor-control.change-state-order" | translate }}
+                    <b class="font-weight-bold">{{showAdvanceNumberOrder}}</b>
+                    {{ "floor-control.change-state-fail-first" | translate }}
+                    <b class="font-weight-bold">{{"floor-control.change-state-fail-second" | translate }}</b>
+                </p>
+            </div>
+        </div>
+
+        <ng-template pTemplate="footer">
+            <div class="col-md-12 text-center">
+                <p-button (click)="closeShowAdvanceFail()"
+                          label="{{ 'floor-control.lblOk' | translate }}"
+                          styleClass="button button-primary text-center"></p-button>
+            </div>
+        </ng-template>
+    </p-dialog>
+
+    <!-- error advance state -->
+    <p-dialog [(visible)]="showAdvanceError"
+              [contentStyleClass]="'border-top'"
+              [modal]="true"
+              [baseZIndex]="10000"
+              [draggable]="false"
+              [showHeader]="false"
+              [resizable]="false">
+        <div class="row">
+            <div class="col-md-12 text-center font50">
+                <img _ngcontent-amv-c221=""
+                     width="60px"
+                     height="60px"
+                     src="../../../assets/images/Alert.svg"
+                     alt="shopping cart"
+                     class="simple-img"
+                     appImage />
+            </div>
+            <div class="col-md-12 text-center mt-24">
+                <p>
+                    {{ "floor-control.change-state-error" | translate }}
+                </p>
+            </div>
+        </div>
+
+        <ng-template pTemplate="footer">
+            <div class="col-md-12 text-center">
+                <p-button (click)="closeShowAdvanceError()"
+                          label="{{ 'floor-control.lblOk' | translate }}"
+                          styleClass="button button-primary text-center"></p-button>
+            </div>
+        </ng-template>
+    </p-dialog>
+
+    <p-toast></p-toast>
+</span>

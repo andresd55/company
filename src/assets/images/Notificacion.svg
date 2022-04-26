@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="23" height="23" viewBox="0 0 23 23">
+  <defs>
+    <clipPath id="clip-Notificación">
+      <rect width="23" height="23"/>
+    </clipPath>
+  </defs>
+  <g id="Notificación" clip-path="url(#clip-Notificación)">
+    <rect width="23" height="23" fill="#fff"/>
+    <g id="Grupo_8713" data-name="Grupo 8713" transform="translate(-1669.361 -18.798)">
+      <path id="bell-regular" d="M17.834,14.705c-.784-.843-2.252-2.11-2.252-6.263a6.41,6.41,0,0,0-5.193-6.3V1.3a1.3,1.3,0,1,0-2.6,0v.846A6.41,6.41,0,0,0,2.6,8.443c0,4.152-1.467,5.42-2.252,6.263A1.268,1.268,0,0,0,0,15.586a1.3,1.3,0,0,0,1.3,1.3H16.881a1.3,1.3,0,0,0,1.3-1.3A1.267,1.267,0,0,0,17.834,14.705ZM2.74,14.937C3.6,13.8,4.543,11.92,4.548,8.466c0-.008,0-.015,0-.024a4.546,4.546,0,1,1,9.092,0c0,.008,0,.015,0,.024,0,3.454.946,5.336,1.807,6.471Zm6.351,5.845a2.6,2.6,0,0,0,2.6-2.6H6.495A2.6,2.6,0,0,0,9.091,20.782Z" transform="translate(1671.861 20)" fill="#2b2a2a"/>
+    </g>
+  </g>
+</svg>

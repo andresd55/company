@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="23.046" height="22.082" viewBox="0 0 23.046 22.082">
+  <g id="shopping-cart" transform="translate(0.5 -10.166)">
+    <g id="Grupo_8399" data-name="Grupo 8399" transform="translate(15.332 26.957)">
+      <g id="Grupo_8398" data-name="Grupo 8398">
+        <path id="Trazado_4586" data-name="Trazado 4586" d="M343.73,373.333a2.4,2.4,0,1,0,2.4,2.4A2.4,2.4,0,0,0,343.73,373.333Zm0,3.833a1.437,1.437,0,1,1,1.437-1.437A1.439,1.439,0,0,1,343.73,377.166Z" transform="translate(-341.334 -373.333)" fill="#fff" stroke="#fff" stroke-width="1"/>
+      </g>
+    </g>
+    <g id="Grupo_8401" data-name="Grupo 8401" transform="translate(5.75 26.957)">
+      <g id="Grupo_8400" data-name="Grupo 8400">
+        <path id="Trazado_4587" data-name="Trazado 4587" d="M130.4,373.333a2.4,2.4,0,1,0,2.4,2.4A2.4,2.4,0,0,0,130.4,373.333Zm0,3.833a1.437,1.437,0,1,1,1.437-1.437A1.439,1.439,0,0,1,130.4,377.166Z" transform="translate(-128 -373.333)" fill="#fff" stroke="#fff" stroke-width="1"/>
+      </g>
+    </g>
+    <g id="Grupo_8403" data-name="Grupo 8403" transform="translate(0 10.666)">
+      <g id="Grupo_8402" data-name="Grupo 8402">
+        <path id="Trazado_4588" data-name="Trazado 4588" d="M19.645,25.04H8.585a2.4,2.4,0,0,1-2.349-1.926L3.824,11.051a.479.479,0,0,0-.47-.385H.479a.479.479,0,0,0,0,.958H2.961L5.3,23.3A3.363,3.363,0,0,0,8.585,26H19.645a.479.479,0,0,0,0-.958Z" transform="translate(0 -10.666)" fill="#fff" stroke="#fff" stroke-width="1"/>
+      </g>
+    </g>
+    <g id="Grupo_8405" data-name="Grupo 8405" transform="translate(3.833 13.541)">
+      <g id="Grupo_8404" data-name="Grupo 8404">
+        <path id="Trazado_4589" data-name="Trazado 4589" d="M103.453,74.77a.513.513,0,0,0-.392-.1H94.812a.479.479,0,1,0,0,.958h7.707l-.681,5.449a1.44,1.44,0,0,1-1.427,1.259H87.25a.479.479,0,1,0,0,.958H100.41a2.4,2.4,0,0,0,2.377-2.1l.748-5.987A.6.6,0,0,0,103.453,74.77Z" transform="translate(-85.333 -74.667)" fill="#fff" stroke="#fff" stroke-width="1"/>
+      </g>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,237 @@
+<form #mydiv class="mt-16" [formGroup]="registerFormCart">
+  <p-dialog 
+    class="ttile-page"
+    header="{{ header | translate }}"
+    [visible]="isDialog$ | async"
+    (visibleChange)="closeDialogFinotex($event)"
+    [style]="{ width: '90vw' }"
+    [modal]="true"
+  >
+
+    <div class="row justify-content-end">
+      <app-button-icon-finotex
+        label="shoppingCart.lblStandardizeRequiredDates"
+        icon="fas fa-calendar"
+        type="submit"
+        typeButton="secondary"
+        [typeSize]="false"
+        (click)="openDateRequiredDialog()"
+      ></app-button-icon-finotex>
+    </div>
+
+    <div
+      class="row"
+      formArrayName="itemsCart"
+      *ngFor="let product of items.controls; let i = index"
+    >
+      <div class="col-12" [formGroupName]="i">
+        <div class="col-12">
+          <hr />
+        </div>
+        <div class="row">
+          <div class="col-12 col-md-2 mt-3">
+            <div class="items-cart">
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/b/b0/Zumba.png"
+                alt="Card image cap"
+                appImage
+              />
+            </div>
+          </div>
+
+          <div class="col-12 col-md-9 mt-3">
+            <div class="row">
+              <div class="col-12 col-md-3 col-lg-2 ">
+                <label>
+                  {{ 'shoppingCart.lblIPC' | translate }}
+                </label>
+
+                <div class="title-card-sub-fonotex">
+                  {{ product.value.customerProductCode }}
+                </div>
+              </div>
+              <div class="col-12 col-md-3 col-lg-2">
+                <label>
+                  {{ 'shoppingCart.lblSize' | translate }}
+                </label>
+                <div class="title-card-sub-fonotex" *ngIf="product.value.sizes !=''; else default">
+                  {{ product.value.sizes }}
+                </div>
+                <ng-template #default>
+                  <div> {{ 'products.default'|translate }}</div> 
+                </ng-template>
+              </div>
+              <div class="col-12 col-md-3 col-lg-2">
+                <label>
+                  {{ 'products.lblColor' | translate }}
+                </label>
+                <div class="title-card-sub-fonotex" *ngIf="product.value.referenceColor !=''; else default">
+                  {{ product.value.referenceColor }}
+                </div>
+                <ng-template #default>
+                  <div> {{ 'products.default'|translate }}</div> 
+                </ng-template>
+              </div>
+              <div class="col-12 col-md-3 col-lg-3 quantity">
+                <label class="label-required">
+                  {{ 'shoppingCart.lblQuantity' | translate }}
+                </label>
+                <app-quantity-input
+                  id="{{ product.value.customerProductCode }}"
+                  titleButton="{{ product.value.unitMeasure }}"
+                  (keyboardInput)="keyboardInput($event, product.value, i)"
+                  (changeInput)="changeInputT($event)"
+                  formControlName="quantity"
+                ></app-quantity-input>
+              </div>
+              <div class="col-12 col-md-3 col-lg-3">
+                <label class="label-required">
+                  {{ 'shoppingCart.require_date' | translate }}
+                </label>
+                <p-calendar
+                  [readonlyInput]="true"
+                  [showIcon]="true"
+                  [appendTo]="mydiv"
+                  formControlName="locationDate"
+                  (onSelect)="changeInputFinotex($event)"
+                ></p-calendar>
+              </div>
+
+
+              <div class="col-12 col-md-3 col-lg-2 mt-2">
+                <label>
+                  {{ 'shoppingCart.lblCPC' | translate }}
+                </label>
+
+                <div class="title-card-sub-fonotex">
+                  {{ product.value.customerProductCode }}
+                </div>
+              </div>
+              <div class="col-12 col-md-3 col-lg-2  mt-2">
+                <label>
+                  {{ 'product-detail.lblDescription' | translate }}
+                </label>
+
+                <div class="title-card-sub-fonotex">
+                  {{ product.value.productName }}
+                </div>
+              </div>
+              <div class="col-12 col-md-3 col-lg-2 mt-2"  *ngIf="showPrice">
+                <label>
+                  {{ 'shoppingCart.lblPricingper1000pcs' | translate }}
+                </label>
+
+                <div class="title-card-sub-fonotex">
+                 {{currencyName}} {{ product.value.price |currency}}
+                  {{ calculatePrice(product.value, product.value.quantity, i)}}
+                </div>
+              </div>
+              <div class="col-12 col-md-3 col-lg-3 mt-2" *ngIf="showPrice">
+                <label>{{ 'shoppingCart.lblSubtotal' | translate }}</label>
+                <div class="title-card-sub-fonotex">
+                  {{currencyName}} {{ product.value.subtotal|currency }}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-md-1 mt-3 center-delete">
+            <app-button-icon-cart-finotex
+              label=""
+              icon="far fa-trash-alt"
+              type="submit"
+              typeButton="secondary"
+              [typeSize]="false"
+              (click)="removeProductCart(i)"
+            ></app-button-icon-cart-finotex>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr />
+
+    <ng-template pTemplate="footer">
+      <div class="row footer-total mb-3"  *ngIf="showPrice">
+        <div class="col-12 text-right">
+          <div class="total-shopping-title">
+            {{ 'shoppingCart.lblTotal' | translate }}
+            {{ total | currency: 'CAD':'symbol-narrow':'.2-2' }}
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12 text-right">
+          <app-button-finotex
+            label="shoppingCart.lblContinueShopping"
+            type="button"
+            typeButton="secondary"
+            [typeSize]="false"
+            class="mr-2"
+            (click)="closeDialogFinotex($event)"
+          ></app-button-finotex>
+
+          <app-button-finotex
+            label="shoppingCart.lblCheckOut"
+            type="button"
+            (click)="redirecCheckout($event)"
+            [disabled]="registerFormCart.invalid || validateRepeatedRequiredDate()"
+            typeButton="primary"
+            [typeSize]="false"
+          ></app-button-finotex>
+        </div>
+      </div>
+    </ng-template>
+  </p-dialog>
+</form>
+
+<form [formGroup]="registerFormRequireDate">
+  <p-dialog
+    #mydivRequired
+    header="{{ 'shoppingCart.lblStandardizeRequiredDates' | translate }}"
+    [(visible)]="displayRequiredDates"
+    [modal]="true"
+    [baseZIndex]="4000"
+    [draggable]="false"
+    [resizable]="false"
+    [style]="{ width: '35vw' }"
+  >
+    <div class="row mt-2">
+      <div class="col-12 col-md-6 col-lg-6 mt-2">
+        <label class="label-required">
+          {{ 'product-brand.lblMsgRequiredDate' | translate }}
+        </label>
+        <p-calendar
+          [readonlyInput]="true"
+          [showIcon]="true"
+          formControlName="dateRequire"
+          [appendTo]="mydivRequired"
+        ></p-calendar>
+      </div>
+    </div>
+    <ng-template pTemplate="footer">
+      <div class="row mt-16">
+        <div class="col-12 text-right">
+          <app-button-finotex
+            class="mr-2"
+            label="checkOut.btnCancelRed"
+            type="submit"
+            typeButton="secondary"
+            [typeSize]="false"
+            (click)="dateRequiredCancel()"
+          ></app-button-finotex>
+
+          <app-button-finotex
+            label="shoppingCart.lblSetDate"
+            type="submit"
+            typeButton="primary"
+            [typeSize]="false"
+            [disabled]="registerFormRequireDate.invalid"
+            (click)="dateRequiredAccept()"
+          ></app-button-finotex>
+        </div>
+      </div>
+    </ng-template>
+  </p-dialog>
+</form>

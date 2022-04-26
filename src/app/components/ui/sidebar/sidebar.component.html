@@ -1,0 +1,52 @@
+<nav class="sidebar">
+  <div class="sidebar-header">
+    <a routerLink="/home" class="finotex">
+      FINOTEX
+    </a>
+    <div class="sidebar-toggler not-active">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+
+  <div class="sidebar-body">
+    <ul class="nav">
+      <li class="nav-item nav-category">{{ 'menu.Main' | translate }}</li>
+      <li class="nav-item">
+        <a routerLink="/home" class="nav-link">
+          <em class="fas fa-home"></em>
+          <span class="link-title">{{ 'menu.Home' | translate }}</span>
+        </a>
+      </li>
+      <li class="nav-item nav-category">{{ 'menu.Menu' | translate }}</li>
+      <ng-container *ngFor="let item of listMenu" >
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            data-toggle="collapse"
+            href="#{{item.label | translate }}"
+            role="button"
+            aria-expanded="false"
+            [attr.aria-controls]="item.label | translate" 
+          >
+            <i class="{{ item.icon }}"></i>
+            <i class="link-icon" data-feather="mail"></i>
+            <span class="link-title">{{item.label | translate }}</span>
+            <i class="link-arrow fas fa-chevron-down"></i>
+          </a>
+
+          <div class="collapse" [attr.id]="item.label | translate">
+            <ul class="nav sub-menu">
+              <ng-container *ngFor="let sub of item.subMenu">
+                <li class="nav-item">
+                  <a [routerLink]="[sub.rute]" class="nav-link">{{sub.label | translate}}</a>
+                </li>
+              </ng-container>
+            </ul>
+          </div>
+        </li>
+      </ng-container>
+    </ul>
+  </div>
+</nav>

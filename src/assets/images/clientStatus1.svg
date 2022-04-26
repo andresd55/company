@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="332" height="310" viewBox="0 0 332 310">
+  <defs>
+    <clipPath id="clip-Cheerck_Circle">
+      <rect width="332" height="310"/>
+    </clipPath>
+  </defs>
+  <g id="Cheerck_Circle" data-name="Cheerck Circle" clip-path="url(#clip-Cheerck_Circle)">
+    <path id="check-circle-regular_1_" data-name="check-circle-regular (1)" d="M158,8A150,150,0,1,0,308,158,150,150,0,0,0,158,8Zm0,29.032A120.968,120.968,0,1,1,37.032,158,120.9,120.9,0,0,1,158,37.032m84.8,78.791L229.17,102.082a7.257,7.257,0,0,0-10.264-.041l-85.5,84.808L97.246,150.391a7.258,7.258,0,0,0-10.264-.042L73.241,163.98a7.258,7.258,0,0,0-.041,10.265L128.108,229.6a7.257,7.257,0,0,0,10.264.041L242.76,126.087A7.259,7.259,0,0,0,242.8,115.823Z" transform="translate(8 -3)" fill="#78d64b"/>
+  </g>
+</svg>

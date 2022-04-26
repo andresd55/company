@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="23" height="23" viewBox="0 0 23 23">
+  <defs>
+    <clipPath id="clip-Log_out">
+      <rect width="23" height="23"/>
+    </clipPath>
+  </defs>
+  <g id="Log_out" data-name="Log out" clip-path="url(#clip-Log_out)">
+    <rect width="23" height="23" fill="#fff"/>
+    <path id="sign-out-alt-solid_2_" data-name="sign-out-alt-solid (2)" d="M19.565,72.207l-6.614,6.614a.946.946,0,0,1-1.614-.669V74.372H5.984a.943.943,0,0,1-.945-.945V69.648a.943.943,0,0,1,.945-.945h5.354V64.924a.947.947,0,0,1,1.614-.669l6.614,6.614A.953.953,0,0,1,19.565,72.207ZM7.558,78.624V77.049a.474.474,0,0,0-.472-.472H3.779a1.258,1.258,0,0,1-1.26-1.26V67.759a1.258,1.258,0,0,1,1.26-1.26H7.086a.474.474,0,0,0,.472-.472V64.452a.474.474,0,0,0-.472-.472H3.779A3.78,3.78,0,0,0,0,67.759v7.558A3.78,3.78,0,0,0,3.779,79.1H7.086A.474.474,0,0,0,7.558,78.624Z" transform="translate(2 -59.979)" fill="#2b2a2a"/>
+  </g>
+</svg>

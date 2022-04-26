@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="64" height="64" viewBox="0 0 64 64">
+  <defs>
+    <clipPath id="clip-Eliminated">
+      <rect width="64" height="64"/>
+    </clipPath>
+  </defs>
+  <g id="Eliminated" clip-path="url(#clip-Eliminated)">
+    <rect width="64" height="64" fill="#fff"/>
+    <g id="Grupo_8673" data-name="Grupo 8673" transform="translate(17482 -19350)">
+      <path id="check-circle-regular_1_" data-name="check-circle-regular (1)" d="M38.493,8A30.493,30.493,0,1,0,68.986,38.493,30.493,30.493,0,0,0,38.493,8Zm0,5.9A24.591,24.591,0,1,1,13.9,38.493,24.578,24.578,0,0,1,38.493,13.9" transform="translate(-17488 19344)" fill="#2b2a2a"/>
+      <path id="trash-alt-solid" d="M23.7,26.43a2.734,2.734,0,0,1-2.734,2.734H4.557A2.734,2.734,0,0,1,1.823,26.43V7.291H23.7ZM8.2,11.848a.911.911,0,1,0-1.823,0v12.76a.911.911,0,1,0,1.823,0Zm5.468,0a.911.911,0,0,0-1.823,0v12.76a.911.911,0,1,0,1.823,0Zm5.468,0a.911.911,0,1,0-1.823,0v12.76a.911.911,0,1,0,1.823,0ZM.911,1.823H7.747L8.282.757A1.367,1.367,0,0,1,9.507,0h6.511a1.351,1.351,0,0,1,1.219.758l.535,1.065h6.835a.911.911,0,0,1,.911.911V4.557a.911.911,0,0,1-.911.911H.911A.911.911,0,0,1,0,4.557V2.734A.911.911,0,0,1,.911,1.823Z" transform="translate(-17462 19368)" fill="#2b2a2a"/>
+    </g>
+  </g>
+</svg>

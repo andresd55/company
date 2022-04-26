@@ -1,0 +1,107 @@
+<div class="main-wrapper">
+  <div class="page-wrapper full-page login">
+    <div class="page-content d-flex align-items-center justify-content-center">
+      <div class="row w-100 mx-0 auth-page">
+        <div class="col-md-7 col-xl-5 mx-auto">
+          <div class="panel-login">
+            <div class="row">
+              <div class="col-12 pl-md-0">
+                <div class="auth-form-wrapper px-5 py-5">
+                  <a href="#" class="noble-ui-logo d-block mb-2">
+                    <img
+                      class="companyLogo simple-img"
+                      data-tenant-branding-logo="true"
+                      src="../../../assets/images/Logo Finotex.svg"
+                      alt="Company Logo"
+                    />
+                  </a>
+                  <label for="exampleInputEmail1" class="mt-2">
+                    {{ 'profile.Welcome_back' | translate }}
+                  </label>
+                  <h5 class="text-muted font-weight-normal mb-4">
+                    {{ 'profile.sub_title' | translate }}
+                  </h5>
+                  <form
+                    class="forms-sample"
+                    [formGroup]="registerForm"
+                    (ngSubmit)="onSubmitRole()"
+                  >
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">
+                        {{ 'profile.Country' | translate }}
+                      </label>
+                      <p-dropdown
+                        (onChange)="onChangeContrys($event)"
+                        appendTo="body"
+                        [options]="countrys"
+                        optionLabel="countryName"
+                        optionValue="countryId"
+                        formControlName="countrys"
+                        placeholder="Select an option"
+                      ></p-dropdown>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">
+                        {{ 'profile.Business_facility' | translate }}
+                      </label>
+                      <p-dropdown
+                        (onChange)="onChangeBusiness($event)"
+                        appendTo="body"
+                        [options]="business"
+                        optionLabel="businessName"
+                        optionValue="businessId"
+                        formControlName="business_facility"
+                        placeholder="{{
+                          'formsGeneral.selSelectOpcion' | translate
+                        }}"
+                      ></p-dropdown>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">
+                        {{ 'profile.Profile_role' | translate }}
+                      </label>
+                      <p-dropdown
+                        appendTo="body"
+                        [options]="profile"
+                        optionLabel="groupName"
+                        optionValue="groupId"
+                        formControlName="profile_role"
+                        placeholder="{{
+                          'formsGeneral.selSelectOpcion' | translate
+                        }}"
+                      ></p-dropdown>
+                    </div>
+
+                    <div>
+                      <p-checkbox
+                        name="groupname"
+                        value="1"
+                        label="Remember me"
+                      ></p-checkbox>
+                    </div>
+
+                    <div class="text-right mt-3">
+                      <button
+                        pButton
+                        type="submit"
+                        iconPos="right"
+                        icon="fas fa-arrow-right"
+                        [disabled]="registerForm.invalid"
+                        class="button button-primary btn-sig"
+                      >
+                        {{ 'profile.Continue' | translate }}
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<p-toast></p-toast>

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="23" height="23" viewBox="0 0 23 23">
+  <defs>
+    <clipPath id="clip-Turn_left">
+      <rect width="23" height="23"/>
+    </clipPath>
+  </defs>
+  <g id="Turn_left" data-name="Turn left" clip-path="url(#clip-Turn_left)">
+    <path id="Trazado_4756" data-name="Trazado 4756" d="M11,9H21a1,1,0,0,1,1,1V20a1,1,0,0,1-1,1H11a1,1,0,0,1-1-1V10A1,1,0,0,1,11,9Zm1,2v8h8V11Zm-6-.414L7.828,8.757l1.415,1.415L5,14.414.757,10.172,2.172,8.757,4,10.586V8A5,5,0,0,1,9,3h4V5H9A3,3,0,0,0,6,8Z" transform="translate(-1 -1)" fill="#2b2a2a"/>
+  </g>
+</svg>

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="26" height="26" viewBox="0 0 26 26">
+  <defs>
+    <clipPath id="clip-full_screen">
+      <rect width="26" height="26"/>
+    </clipPath>
+  </defs>
+  <g id="full_screen" data-name="full screen" clip-path="url(#clip-full_screen)">
+    <g id="Grupo_11687" data-name="Grupo 11687" transform="translate(1 1)">
+      <path id="Trazado_4763" data-name="Trazado 4763" d="M0,0H24V24H0Z" fill="none"/>
+      <path id="Trazado_4764" data-name="Trazado 4764" d="M18,7h4V9H16V3h2ZM8,9H2V7H6V3H8Zm10,8v4H16V15h6v2ZM8,15v6H6V17H2V15Z" fill="#2b2a2a"/>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="23" height="23" viewBox="0 0 23 23">
+  <defs>
+    <clipPath id="clip-Carrito_de_compras_rojo">
+      <rect width="60" height="60"/>
+    </clipPath>
+  </defs>
+  <g id="Carrito_de_compras" data-name="Carrito de compras" clip-path="url(#clip-Carrito_de_compras_rojo)">
+    <rect width="60" height="60" fill="#fff"/>
+    <g id="shopping-cart" transform="translate(1.539 -8.666)">
+      <g id="Grupo_8399" data-name="Grupo 8399" transform="translate(13.71 25.233)">
+        <g id="Grupo_8398" data-name="Grupo 8398">
+          <path id="Trazado_4586" data-name="Trazado 4586" d="M343.476,373.333a2.142,2.142,0,1,0,2.142,2.142A2.145,2.145,0,0,0,343.476,373.333Zm0,3.427a1.285,1.285,0,1,1,1.285-1.285A1.287,1.287,0,0,1,343.476,376.761Z" transform="translate(-341.334 -373.333)" fill="#D6001C" stroke="#D6001C" stroke-width="1.3"/>
+        </g>
+      </g>
+      <g id="Grupo_8401" data-name="Grupo 8401" transform="translate(5.141 25.233)">
+        <g id="Grupo_8400" data-name="Grupo 8400">
+          <path id="Trazado_4587" data-name="Trazado 4587" d="M130.142,373.333a2.142,2.142,0,1,0,2.142,2.142A2.145,2.145,0,0,0,130.142,373.333Zm0,3.427a1.285,1.285,0,1,1,1.285-1.285A1.287,1.287,0,0,1,130.142,376.761Z" transform="translate(-128 -373.333)" fill="#D6001C" stroke="#D6001C" stroke-width="1.3"/>
+        </g>
+      </g>
+      <g id="Grupo_8403" data-name="Grupo 8403" transform="translate(0 10.666)">
+        <g id="Grupo_8402" data-name="Grupo 8402">
+          <path id="Trazado_4588" data-name="Trazado 4588" d="M17.566,23.519H7.677a2.148,2.148,0,0,1-2.1-1.722L3.419,11.01A.428.428,0,0,0,3,10.666H.428a.428.428,0,0,0,0,.857H2.648L4.736,21.966a3.007,3.007,0,0,0,2.941,2.41h9.889a.428.428,0,0,0,0-.857Z" transform="translate(0 -10.666)" fill="#D6001C" stroke="#D6001C" stroke-width="1.3"/>
+        </g>
+      </g>
+      <g id="Grupo_8405" data-name="Grupo 8405" transform="translate(4.713 13.237)">
+        <g id="Grupo_8404" data-name="Grupo 8404" transform="translate(0)">
+          <path id="Trazado_4589" data-name="Trazado 4589" d="M101.688,74.759a.459.459,0,0,0-.351-.092H93.961a.428.428,0,1,0,0,.857h6.891l-.609,4.872a1.288,1.288,0,0,1-1.276,1.126H87.2a.428.428,0,1,0,0,.857H98.967a2.146,2.146,0,0,0,2.126-1.877l.669-5.354A.54.54,0,0,0,101.688,74.759Z" transform="translate(-86.77 -74.667)" fill="#D6001C" stroke="#D6001C" stroke-width="1.3"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
